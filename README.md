@@ -21,6 +21,7 @@ Clone the Repository and run
 
 ```
 npm install
+
 npm run dev
 ```
 
