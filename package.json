@@ -1,0 +1,50 @@
+{
+  "name": "untitled",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "12.14.1",
+    "npm": "6.13.4"
+  },
+  "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "diet-cross-origin": "^0.2.3",
+    "hls.js": "^0.13.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "react-spinners": "^0.8.3",
+    "serve": "^11.3.0",
+    "styled-components": "^5.1.0",
+    "swiper": "^5.3.8"
+  },
+  "scripts": {
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
