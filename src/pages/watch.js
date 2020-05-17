@@ -99,6 +99,7 @@ top:500px;
 
 const Watch = () => {
 const [loading,setLoading]=useState(true)
+const [iFr,setIfr] = useState(false)
 let history=useHistory()
 const {id , ep} = useParams()
 const [url,setUrl] = useState("")
@@ -108,12 +109,19 @@ let uri=`https://anime-x.herokuapp.com/watching/${id}/${ep}`
     fetch(uri)
     .then(res=> res.json())
     .then(data =>{
-      if(data.link.length!==0){
-              setUrl(data.link[0])
-            setLoading(false)}
+      if(data.links.length>=1||data.link.length>=2){
+        if(data.links[0].label==="hls P"){
+          setIfr(true)
+          setUrl(data.link)
+        }
+        else{
+          setUrl(data.links[0]["url"])
+        }
+        setLoading(false)
+      } 
       else{
-        history.push('/error')
-      }        
+        history.push("/error")
+      }     
     })
 
     }  ,[uri,ep,id,history])
@@ -121,9 +129,8 @@ let uri=`https://anime-x.herokuapp.com/watching/${id}/${ep}`
     return(
       
       loading?<Loading/>:<>
-      <Wrap>
-      <iframe title="outer" src={url}  marginHeight="0" marginWidth="0" scrolling="no"  style={{position:"absolute",width:'100%',height:'100%',  boxShadow: '10px 10px 20px rgba(0,0,0,0.5)' }}  frameBorder="0" allowFullScreen={true}>
-      </iframe>  
+      <Wrap>{iFr?      <iframe title="outer" src={url}  marginHeight="0" marginWidth="0" scrolling="no"  style={{position:"absolute",width:'100%',height:'100%',  boxShadow: '10px 10px 20px rgba(0,0,0,0.5)' }}  frameBorder="0" allowFullScreen={true}>
+      </iframe> : <video src={url} style={{position:"absolute",width:'100%',height:'100%',  boxShadow: '10px 10px 20px rgba(0,0,0,0.5)' }} autoPlay controls></video>  }
       </Wrap>
       <Pagination>
                    {ep==='1'?null:<PageB  to={`/watch/${id}/${Number(ep)-1}`}>Previous<FaRegArrowAltCircleLeft style={{position:'relative',top:'5px'}}/></PageB>}
