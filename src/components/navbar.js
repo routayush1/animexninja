@@ -129,7 +129,7 @@ const Navbar=()=>{
                 </Label>
 
 
-            <Logo to="/"><img src={process.env.PUBLIC_URL + '/ninja.svg'} style={{height:'45px',top:'9px', width:'45px',position:'relative' }} alt=""/>ANIMEX</Logo>
+            <Logo to="/" onClick={()=>{document.getElementById('check').checked=false;}} ><img src={process.env.PUBLIC_URL + '/ninja.svg'} style={{height:'45px',top:'9px', width:'45px',position:'relative' }} alt=""/>ANIMEX</Logo>
                 <Ul id="click">
                     <Li><A to="/popular/1" onClick={()=>{document.getElementById('check').checked=false;}}><RiUserHeartLine size='1.2em' style={{position: 'relative',top: '6px',right: '4px'}} /> Popular</A></Li>
                     <Li><A to="/recentlyadded/page/1" onClick={()=>{document.getElementById('check').checked=false;}}><RiImageAddLine size='1.2em' style={{position: 'relative',top: '6px',right: '4px'}}/>Recently Added</A></Li>
