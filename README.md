@@ -1,6 +1,6 @@
 # Anime Web App with Reactjs.
 
-## [Check it live here](https://animex.ninja)
+## [Check it live here](animex.ninja)
 
 ![Thumbnail](thumbnail.png)
 
