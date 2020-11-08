@@ -100,11 +100,11 @@ const Watch = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.links.length >= 1 || data.link.length >= 2) {
-          if (data.links.length === 0 || data.links[0].label === "hls P") {
+          if (data.links.length === 0) {
             setIfr(true);
             setUrl(data.link);
           } else {
-            setUrl(data.links[0]["url"]);
+            setUrl(data.links[0]);
           }
           setLoading(false);
         } else {

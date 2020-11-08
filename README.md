@@ -1,9 +1,8 @@
 # Anime Web App with Reactjs.
 
-## [Check it live here](https://animexninja.herokuapp.com/)
+## [Check it live here](https://animeninja.herokuapp.com/)
 
 ![Thumbnail](thumbnail.png)
-
 
 An Anime Streaming web app to give you a better experience for free.
 
@@ -22,7 +21,6 @@ Clone the Repository and run
 
 ```
 npm install
-
 npm run dev
 ```
 
