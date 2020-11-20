@@ -12,10 +12,10 @@ background: ${(props)=> props.theme.colors.dark};
   height: 80px;
   border-radius: 1em;
   box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
-  width: 96%;
+  /* width: 100%; */
   position: sticky;
   z-index: 100000;
-  margin: 2%;
+  margin: 1.2%;
 `
 const Ul=styled.ul`
 float: right;
@@ -49,7 +49,7 @@ const A=styled(Link)`
   font-size: 25px;
   padding: 7px 13px;
   border-radius: 3px;
-  text-transform: uppercase;
+  
   &:active{
     background:${props=>props.theme.colors.light};
     color:${props=>props.theme.colors.dark};
@@ -129,7 +129,7 @@ const Navbar=()=>{
                 </Label>
 
 
-            <Logo to="/" onClick={()=>{document.getElementById('check').checked=false;}} ><img src={process.env.PUBLIC_URL + '/ninja.svg'} style={{height:'45px',top:'9px', width:'45px',position:'relative' }} alt=""/>ANIMEX</Logo>
+            <Logo to="/" onClick={()=>{document.getElementById('check').checked=false;}} ><img src={process.env.PUBLIC_URL + '/ninja.svg'} style={{height:'45px',top:'9px', width:'45px',position:'relative' }} alt=""/>AnimeX</Logo>
                 <Ul id="click">
                     <Li><A to="/popular/1" onClick={()=>{document.getElementById('check').checked=false;}}><RiUserHeartLine size='1.2em' style={{position: 'relative',top: '6px',right: '4px'}} /> Popular</A></Li>
                     <Li><A to="/recentlyadded/page/1" onClick={()=>{document.getElementById('check').checked=false;}}><RiImageAddLine size='1.2em' style={{position: 'relative',top: '6px',right: '4px'}}/>Recently Added</A></Li>

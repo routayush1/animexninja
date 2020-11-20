@@ -32,7 +32,7 @@ color: white;
     transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
 &:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
     ::after {
       transform: scaleY(1);
       opacity: 1;

@@ -11,7 +11,8 @@ import Watch from "./pages/watch";
 import Error from "./pages/404";
 import Home from "./pages/homepage";
 import styled from "styled-components";
-
+import { RiUserHeartLine,RiImageAddLine } from "react-icons/ri";
+import { TiThListOutline } from "react-icons/ti";
 const Heading = styled.h1`
   color: white;
 `;
@@ -33,15 +34,15 @@ function App() {
               <Home />
             </Route>
             <Route path="/popular/:page" exact>
-              <Heading>Popular</Heading>
+              <Heading><RiUserHeartLine size='1.2em' style={{position: 'relative',top: '6px',right: '4px'}} /> Popular</Heading>
               <Container />
             </Route>
             <Route path="/recentlyadded/page/:page" exact>
-              <Heading>Recently Added</Heading>
+              <Heading><RiImageAddLine size='1.2em' style={{position: 'relative',top: '6px',right: '4px'}}/>Recently Added</Heading>
               <Container />
             </Route>
             <Route path="/search/:query/:page" exact>
-              <Heading>Search Results</Heading>
+              <Heading>Search Results </Heading>
               <Container />
             </Route>
             <Route path="/genre/:query/:page" exact>
@@ -49,7 +50,7 @@ function App() {
               <Container />
             </Route>
             <Route path="/list/:vari/:page">
-              <Heading>Anime List</Heading>
+              <Heading><TiThListOutline size='1.2em' style={{position: 'relative',top: '6px',right: '4px'}}/>Anime List</Heading>
               <ListPage />
             </Route>
 

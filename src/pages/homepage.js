@@ -63,7 +63,7 @@ const L = styled(Link)`
 const Warning = styled.div`
   display: flex;
   height: auto;
-  margin: 17px auto;
+  margin: 18px auto;
   flex-direction: row;
   align-items: center;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
@@ -167,7 +167,7 @@ const Git = styled.a`
   transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     ::after {
       transform: scaleY(1);
       opacity: 1;
@@ -182,7 +182,7 @@ const Img = styled.img`
   border-radius: 20px;
   left: -60px;
   background-image: linear-gradient(9deg, #7b0d93 0%, #ef5b00 100%),
-    url(https://brave.com/wp-content/uploads/2018/09/coding-background-texture.jpg) !important;
+    url('https://brave.com/wp-content/uploads/2018/09/coding-background-texture.jpg') !important;
   box-shadow: 0rem 2rem 5rem #282c34;
   transition: all 300ms ease;
   @media ${(props) => props.theme.mediaQueries.large} {
@@ -211,7 +211,7 @@ const Maindiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 5px auto;
+  margin: 4px auto;
 
   @media ${(props) => props.theme.mediaQueries.medium} {
     margin: auto;
@@ -252,7 +252,7 @@ const Home = () => {
           {genre.map((ele, index) => {
             return (
               <L to={`/genre/${ele.split(" ").join("-")}/1`} key={index}>
-                {ele}{" "}
+                {ele}
               </L>
             );
           })}
@@ -280,12 +280,12 @@ const Home = () => {
                 you should install this super ad blocker and safe browser that
                 restricts ad's while binge watching your favorite anime
               </P>
-            </div>{" "}
+            </div>
           </Summary>
           <Genre>
-            <A href="https://laptop-updates.brave.com/latest/winx64">Windows</A>
-            <A href="https://laptop-updates.brave.com/latest/osx">MacOS</A>
-            <A href="https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux">
+            <A href="https://brave.com/download/">Windows</A>
+            <A href="https://brave.com/download/">MacOS</A>
+            <A href="https://brave.com/linux/">
               Linux
             </A>
             <A href="https://play.google.com/store/apps/details?id=com.brave.browser&hl=en">

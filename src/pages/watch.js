@@ -5,39 +5,6 @@ import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import Loading from "../components/Loading";
 
-const Wrap = styled.div`
-  width: 60%;
-  height: auto;
-
-  position: absolute;
-  left: 20%;
-  top: 57%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-
-  &:after {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-bottom: 56.25%;
-  }
-  @media ${(props) => props.theme.mediaQueries.medium} {
-    left: 5%;
-    top: 50%;
-    width: 90%;
-  }
-
-  @media ${(props) => props.theme.mediaQueries.smaller} {
-    left: 5%;
-    top: 43%;
-    width: 90%;
-    height: 16rem;
-  }
-`;
-
 const PageB = styled(Link)`
   text-decoration: none;
   color: white;
@@ -67,27 +34,34 @@ const Pagination = styled.div`
   display: flex;
   flex-direction: row;
   height: 60px;
-  top: 780px;
-  position: absolute;
   align-items: center;
-  left: 8.5%;
-  width: 80%;
-  justify-content: space-between;
-  @media ${(props) => props.theme.mediaQueries.medium} {
-    top: 650px;
-  }
+  width: 100%;
+  justify-content: space-around;
 
-  @media ${(props) => props.theme.mediaQueries.smaller} {
-    top: 500px;
+`;
+const Heading = styled.div`
+  text-transform: capitalize;
+  font-size: 40px;
+  color: white;
+  margin: 50px auto;
+  @media ${(props) => props.theme.mediaQueries.medium} {
+    font-size: 30px;
   }
 `;
-const Heading = styled.h2`
-  color: white;
+
+const Video = styled.video`
+width:55vw;
+height:auto;
+
+  @media ${(props) => props.theme.mediaQueries.smaller} {
+    width: 90vw;
+  }
+
 `;
 
 const Watch = () => {
   const [loading, setLoading] = useState(true);
-  const [iFr, setIfr] = useState(false);
+  
   let history = useHistory();
   const { id, ep } = useParams();
   const [url, setUrl] = useState("");
@@ -101,7 +75,7 @@ const Watch = () => {
       .then((data) => {
         if (data.links.length >= 1 || data.link.length >= 2) {
           if (data.links.length === 0) {
-            setIfr(true);
+           
             setUrl(data.link);
           } else {
             setUrl(data.links[0]);
@@ -118,40 +92,21 @@ const Watch = () => {
   ) : (
     <>
       <Heading>
-        Watching :- {id.split("-").join(" ")} EPISODE_NO_{ep}
+        Watching :- {id.split("-").join(" ")} &nbsp; Episode-{ep}
       </Heading>
 
-      <Wrap>
-        {iFr ? (
-          <iframe
-            title="outer"
-            src={url}
-            marginHeight="0"
-            marginWidth="0"
-            scrolling="no"
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              boxShadow: "10px 10px 20px rgba(0,0,0,0.5)",
-            }}
-            frameBorder="0"
-            allowFullScreen={true}
-          ></iframe>
-        ) : (
-          <video
+     
+
+          <Video
             src={url}
             style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
+              // position: "absolute",
               boxShadow: "10px 10px 20px rgba(0,0,0,0.5)",
             }}
             autoPlay
             controls
-          ></video>
-        )}
-      </Wrap>
+          ></Video>
+   
       <Pagination>
         {ep === "1" ? null : (
           <PageB to={`/watch/${id}/${Number(ep) - 1}`}>
