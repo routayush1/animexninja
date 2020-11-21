@@ -1,5 +1,7 @@
 .App {
-  font-family: 'Belleza', cursive !important;
+  /* font-family: 'Belleza', cursive !important; */
+  /* font-family: 'Arima Madurai', cursive; */
+  font-family: 'Raleway', sans-serif;
   text-align: center;
 }
 body {

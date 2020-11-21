@@ -186,10 +186,12 @@ display: grid;
 
 `
 
+const Heading2 = styled.h1`
+  color: white;
+`;
 
 
-
-const Details=()=>{
+const Details=({heading})=>{
 
    
     const[details,setdetails]=useState({})
@@ -222,6 +224,8 @@ const Details=()=>{
     return(
 
         loading? <Loading /> : 
+        <>
+            <Heading2>{heading}</Heading2>
             <Main >
             <Wrapper >
                 <Wrap >
@@ -252,6 +256,7 @@ const Details=()=>{
             </Wrapper>
             </Main>
         
+                            </>
 
     )
 

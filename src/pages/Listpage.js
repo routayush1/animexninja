@@ -78,8 +78,10 @@ color: white;
 
    }
 `
-
-const ListPage = () => {
+const Heading = styled.h1`
+  color: white;
+`;
+const ListPage = ({heading}) => {
     const Alphabet = ()=> {
         var x = []
         var i = 65;
@@ -116,6 +118,7 @@ const ListPage = () => {
 
     return(
         loading?<Loading /> :<>
+        <Heading>{heading}</Heading>
        <Container>
            <div style={{backgroundImage:'linear-gradient(135deg, rgb(42,115,113) 0%, rgb(42,115,113) 1%,rgb(2,168,148) 1%, rgb(2,168,148) 53%,rgb(0,214,193) 53%, rgb(0,214,193) 57%,rgb(85,90,102) 57%, rgb(85,90,102) 69%,rgb(65,73,82) 69%, rgb(65,73,82) 75%,rgb(35,39,43) 75%, rgb(35,39,43) 100%)',borderRadius: '20px'}}>
             <Alpha>

@@ -4,8 +4,7 @@ import ImgLoad from "./ImgLoad"
 import {Link , useLocation} from "react-router-dom"
 const Div=styled.div`
 display: flex;
- box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
-
+ box-shadow: 5px 5px 25px rgba(0,0,0,0.5);
   flex-direction: column;
   text-decoration: none;
   background-color: #333;
@@ -15,14 +14,13 @@ display: flex;
   transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
   &:hover {
     transform: scale(1.03);
-    
+    box-shadow: 5px 5px 25px #75d8c1;
   }
  
 `
 const Image=styled.img`
 width: 100%;
   height: 20rem;
-
   object-fit: cover;
   border-top-left-radius:0.8rem;
   border-top-right-radius:0.8rem;
@@ -38,7 +36,6 @@ width: 100%;
 `
 const Title=styled.div`
 top:0;
-//background-image: radial-gradient(circle at top right, rgb(4, 20, 62) 0%, rgb(4, 20, 62) 28%,rgb(49, 29, 62) 28%, rgb(49, 29, 62) 45%,rgb(94, 38, 62) 45%, rgb(94, 38, 62) 63%,rgb(138, 47, 62) 63%, rgb(138, 47, 62) 100%);
 background-color: #333;
 
 
@@ -79,7 +76,7 @@ ${Div}:hover & {
                       stroke="transparent" fill='#333'/>
                   <path className="card__line"
                         d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400"
-                        stroke="pink" strokeWidth="3" fill="transparent"/>
+                        stroke="#75d8c1" strokeWidth="15" fill="transparent"/>
               </Svg>
 
 

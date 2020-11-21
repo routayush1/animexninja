@@ -10,12 +10,8 @@ import Details from "./pages/details";
 import Watch from "./pages/watch";
 import Error from "./pages/404";
 import Home from "./pages/homepage";
-import styled from "styled-components";
-import { RiUserHeartLine,RiImageAddLine } from "react-icons/ri";
+import { RiUserHeartLine, RiImageAddLine } from "react-icons/ri";
 import { TiThListOutline } from "react-icons/ti";
-const Heading = styled.h1`
-  color: white;
-`;
 
 function App() {
   useEffect(() => {
@@ -34,29 +30,71 @@ function App() {
               <Home />
             </Route>
             <Route path="/popular/:page" exact>
-              <Heading><RiUserHeartLine size='1.2em' style={{position: 'relative',top: '6px',right: '4px'}} /> Popular</Heading>
-              <Container />
+              <Container
+                heading={{
+                  ...(
+                    <span>
+                      <RiUserHeartLine
+                        size="1.2em"
+                        style={{
+                          position: "relative",
+                          top: "6px",
+                          right: "4px",
+                        }}
+                      />
+                      Popular
+                    </span>
+                  ),
+                }}
+              />
             </Route>
             <Route path="/recentlyadded/page/:page" exact>
-              <Heading><RiImageAddLine size='1.2em' style={{position: 'relative',top: '6px',right: '4px'}}/>Recently Added</Heading>
-              <Container />
+              <Container
+                heading={{
+                  ...(
+                    <span>
+                      <RiImageAddLine
+                        size="1.2em"
+                        style={{
+                          position: "relative",
+                          top: "6px",
+                          right: "4px",
+                        }}
+                      />
+                      Recently Added
+                    </span>
+                  ),
+                }}
+              />
             </Route>
             <Route path="/search/:query/:page" exact>
-              <Heading>Search Results </Heading>
-              <Container />
+              <Container heading="Search Results" />
             </Route>
             <Route path="/genre/:query/:page" exact>
-              <Heading>Genre</Heading>
-              <Container />
+              <Container heading="Genre" />
             </Route>
             <Route path="/list/:vari/:page">
-              <Heading><TiThListOutline size='1.2em' style={{position: 'relative',top: '6px',right: '4px'}}/>Anime List</Heading>
-              <ListPage />
+              <ListPage
+                heading={{
+                  ...(
+                    <span>
+                      <TiThListOutline
+                        size="1.2em"
+                        style={{
+                          position: "relative",
+                          top: "6px",
+                          right: "4px",
+                        }}
+                      />
+                      Anime List
+                    </span>
+                  ),
+                }}
+              />
             </Route>
 
             <Route path="/details/:id" exact>
-              <Heading>Details</Heading>
-              <Details />
+              <Details heading="Details" />
             </Route>
             <Route path="/watch/:id/:ep" exact>
               <Watch />
