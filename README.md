@@ -1,6 +1,6 @@
 # Anime Web App with Reactjs.
 
-## [Check it live here](https://animexninja.herokuapp.com/)
+## [Check it live here](https://animex.ninja/)
 
 ![Thumbnail](thumbnail.png)
 
@@ -8,7 +8,7 @@ An Anime Streaming web app to give you a better experience for free.
 
 ## Api Reference 
 
-- [anime-x api](https://anime-x.herokuapp.com/)
+- [anime-x api]https://anime-x.vercel.app/api/home)
 This api is being used in this project.   
 
 ## Getting Started
