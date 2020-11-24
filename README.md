@@ -8,7 +8,7 @@ An Anime Streaming web app to give you a better experience for free.
 
 ## Api Reference 
 
-- [anime-x api]https://anime-x.vercel.app/api/home)
+- [anime-x api](https://anime-x.vercel.app/api/home)
 This api is being used in this project.   
 
 ## Getting Started
