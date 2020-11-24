@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import theme from "./theme/theme";
 import ListPage from "./pages/Listpage";
 import { ThemeProvider } from "styled-components";
@@ -14,12 +14,6 @@ import { RiUserHeartLine, RiImageAddLine } from "react-icons/ri";
 import { TiThListOutline } from "react-icons/ti";
 
 function App() {
-  useEffect(() => {
-    setInterval(() => {
-      fetch("https://anime-x.herokuapp.com/").then((res) => res.json());
-    }, 1500000);
-  });
-
   return (
     <ThemeProvider theme={theme}>
       <div className="App">

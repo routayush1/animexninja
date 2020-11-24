@@ -182,7 +182,7 @@ const Img = styled.img`
   border-radius: 20px;
   left: -60px;
   background-image: linear-gradient(9deg, #7b0d93 0%, #ef5b00 100%),
-    url('https://brave.com/wp-content/uploads/2018/09/coding-background-texture.jpg') !important;
+    url("https://brave.com/wp-content/uploads/2018/09/coding-background-texture.jpg") !important;
   box-shadow: 0rem 2rem 5rem #282c34;
   transition: all 300ms ease;
   @media ${(props) => props.theme.mediaQueries.large} {
@@ -226,15 +226,11 @@ const Home = () => {
 
   useEffect(() => {
     countapi
-      .update(
-        "animexninja.herokuapp.com",
-        "9581d249-5d1a-4f05-a6aa-724d2f36b57f",
-        1
-      )
+      .update("animex.ninja", "864a5feb-66ee-4c0d-97a6-2f76c1d7e6ad", 1)
       .then((result) => {
         setvist(result.value);
       });
-    fetch(`https://anime-x.herokuapp.com/genrelist`)
+    fetch(`https://anime-x.vercel.app/api/genrelist`)
       .then((res) => res.json())
       .then((doc) => {
         setgenre(doc.list);
@@ -285,9 +281,7 @@ const Home = () => {
           <Genre>
             <A href="https://brave.com/download/">Windows</A>
             <A href="https://brave.com/download/">MacOS</A>
-            <A href="https://brave.com/linux/">
-              Linux
-            </A>
+            <A href="https://brave.com/linux/">Linux</A>
             <A href="https://play.google.com/store/apps/details?id=com.brave.browser&hl=en">
               Android
             </A>

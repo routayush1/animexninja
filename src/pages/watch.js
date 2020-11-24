@@ -37,7 +37,6 @@ const Pagination = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-around;
-
 `;
 const Heading = styled.div`
   text-transform: capitalize;
@@ -50,23 +49,22 @@ const Heading = styled.div`
 `;
 
 const Video = styled.video`
-width:55vw;
-height:auto;
+  width: 55vw;
+  height: auto;
 
   @media ${(props) => props.theme.mediaQueries.smaller} {
     width: 90vw;
   }
-
 `;
 
 const Watch = () => {
   const [loading, setLoading] = useState(true);
-  
+
   let history = useHistory();
   const { id, ep } = useParams();
   const [url, setUrl] = useState("");
 
-  let uri = `https://anime-x.herokuapp.com/watching/${id}/${ep}`;
+  let uri = `https://anime-x.vercel.app/api/watching/${id}/${ep}`;
   useEffect(() => {
     setLoading(true);
 
@@ -75,7 +73,6 @@ const Watch = () => {
       .then((data) => {
         if (data.links.length >= 1 || data.link.length >= 2) {
           if (data.links.length === 0) {
-           
             setUrl(data.link);
           } else {
             setUrl(data.links[0]);
@@ -95,18 +92,15 @@ const Watch = () => {
         Watching :- {id.split("-").join(" ")} &nbsp; Episode-{ep}
       </Heading>
 
-     
+      <Video
+        src={url}
+        style={{
+          boxShadow: "10px 10px 20px rgba(0,0,0,0.5)",
+        }}
+        autoPlay
+        controls
+      ></Video>
 
-          <Video
-            src={url}
-            style={{
-              // position: "absolute",
-              boxShadow: "10px 10px 20px rgba(0,0,0,0.5)",
-            }}
-            autoPlay
-            controls
-          ></Video>
-   
       <Pagination>
         {ep === "1" ? null : (
           <PageB to={`/watch/${id}/${Number(ep) - 1}`}>
