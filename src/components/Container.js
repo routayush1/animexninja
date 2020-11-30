@@ -48,8 +48,7 @@ const PageB = styled(Link)`
 const Heading = styled.h1`
   color: white;
 `;
-const Container = ({heading}) => {
-    console.log(heading)
+const Container = ({ heading }) => {
   let { page, query } = useParams();
   let path = useLocation().pathname.split("/");
   let history = useHistory();
@@ -57,13 +56,13 @@ const Container = ({heading}) => {
   const [loading, setLoading] = useState(false);
   let url = ``;
   if (path[1] === "popular") {
-    url = `https://anime-x.herokuapp.com/popular/${page}`;
+    url = `https://anime-x.vercel.app/api/popular/${page}`;
   } else if (path[1] === "search") {
-    url = `https://anime-x.herokuapp.com/search/${query}/${page}`;
+    url = `https://anime-x.vercel.app/api/search/${query}/${page}`;
   } else if (path[1] === "genre") {
-    url = `https://anime-x.herokuapp.com/genre/${query}/${page}`;
+    url = `https://anime-x.vercel.app/api/genre/${query}/${page}`;
   } else if (path[1] === "recentlyadded") {
-    url = `https://anime-x.herokuapp.com/recentlyadded/${page}`;
+    url = `https://anime-x.vercel.app/api/recentlyadded/${page}`;
   }
 
   const [list, setList] = useState([]);
@@ -82,45 +81,47 @@ const Container = ({heading}) => {
   }, [page, url, history]);
   return (
     <>
-    <Heading>{path[1]==="search"?heading+" for \""+query+"\"":heading}</Heading>
-    <Box>
-      {loading ? (
+      <Heading>
+        {path[1] === "search" ? heading + ' for "' + query + '"' : heading}
+      </Heading>
+      <Box>
+        {loading ? (
           <Loading />
-          ) : (
-        <>
-          <AnimeList data={list} />
-          <div
-            style={{
+        ) : (
+          <>
+            <AnimeList data={list} />
+            <div
+              style={{
                 display: "flex",
                 flexDirection: "row",
                 height: "100px",
                 alignItems: "center",
-            }}
+              }}
             >
-            {page === "1" ? null : (
+              {page === "1" ? null : (
                 <PageB
-                style={{ position: "absolute", left: "17%" }}
-                to={`/${path[1]}${path[1] !== "popular" ? `/${path[2]}` : ""}/${
-                  Number(page) - 1
-                }`}
+                  style={{ position: "absolute", left: "17%" }}
+                  to={`/${path[1]}${
+                    path[1] !== "popular" ? `/${path[2]}` : ""
+                  }/${Number(page) - 1}`}
                 >
-                <FaRegArrowAltCircleLeft />
-              </PageB>
-            )}
-            <br></br>
-            <PageB
-              style={{ position: "absolute", right: "17%" }}
-              to={`/${path[1]}${path[1] !== "popular" ? `/${path[2]}` : ""}/${
+                  <FaRegArrowAltCircleLeft />
+                </PageB>
+              )}
+              <br></br>
+              <PageB
+                style={{ position: "absolute", right: "17%" }}
+                to={`/${path[1]}${path[1] !== "popular" ? `/${path[2]}` : ""}/${
                   Number(page) + 1
                 }`}
-                >
-              <FaRegArrowAltCircleRight />
-            </PageB>
-          </div>
-        </>
-      )}
-    </Box>
-      </>
+              >
+                <FaRegArrowAltCircleRight />
+              </PageB>
+            </div>
+          </>
+        )}
+      </Box>
+    </>
   );
 };
 
