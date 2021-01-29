@@ -75,7 +75,7 @@ const Watch = () => {
           if (data.links.length === 0) {
             setUrl(data.link);
           } else {
-            setUrl(data.links[0]);
+            setUrl(data.links[0].link);
           }
           setLoading(false);
         } else {
