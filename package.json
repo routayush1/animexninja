@@ -17,6 +17,7 @@
     "lottie-react-web": "^2.2.2",
     "next": "10.0.5",
     "postcss": "^8.2.4",
+    "postcss-preset-env": "^6.7.0",
     "react": "^17.0.1",
     "react-dark-mode-toggle": "0.0.10",
     "react-dom": "^17.0.1",
