@@ -1,0 +1,56 @@
+:root {
+    --primary-color: #00bcd4;
+    --accent-color: #f50057;
+
+    --text-color: #263238;
+    --body-color: #80deea;
+    --main-font: "roboto";
+    --font-bold: 700;
+    --font-regular: 400;
+}
+
+h1 {
+    font-weight: var(--font-bold);
+}
+input,
+button {
+    border: none;
+    background: none;
+    outline: 0;
+}
+button {
+    cursor: pointer;
+}
+#formGroupExampleInput:-moz-placeholder {
+    color: white;
+}
+
+.SearchBox {
+    height: 50px;
+    display: inline-flex;
+    padding-left: 2em;
+    width: 200px;
+
+    border-radius:30px;
+    background-color: white;
+}
+
+.SearchBox-input {
+    width: 130px;
+    font-size: 1.2em;
+    color: #333;
+    transition: 0.45s;
+}
+.SearchBox-button {
+    color: black;
+    display: flex;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+.SearchBox-button:active {
+    transform: scale(0.85);
+}
+.SearchBox-icon {
+    margin: auto;
+    color: black;
+}
