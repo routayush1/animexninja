@@ -1,4 +1,5 @@
 module.exports = {
+  purge: [],
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
