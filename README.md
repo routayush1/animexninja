@@ -2,9 +2,9 @@
 
 ## Check it live here
 
-[www.animex.ninja](https://animex.ninja/)
+[www.animex.ninja](https://www.animex.ninja/)
 
-![Thumbnail](pcmockup.png)
+![Thumbnail](thumbnail.png)
 
 An Anime Streaming web app to give you a better experience for free.
 
