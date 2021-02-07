@@ -1,15 +1,17 @@
 # Anime Web App with Reactjs.
 
-## [Check it live here](https://animex.ninja/)
+## Check it live here
 
-![Thumbnail](thumbnail.png)
+[www.animex.ninja](https://animex.ninja/)
+
+![Thumbnail](pcmockup.png)
 
 An Anime Streaming web app to give you a better experience for free.
 
-## Api Reference 
+## Api Reference
 
 - [anime-x api](https://anime-x.vercel.app/api/home)
-This api is being used in this project.   
+  This api is being used in this project.
 
 ## Getting Started
 
@@ -30,13 +32,23 @@ To deploy simply run
 
 ```
 npm run build
+npx next export
 ```
 
 ## Built With
 
-- [React JS](https://reactjs.org/)
-- [React Router](https://github.com/ReactTraining/react-router)
-- [Styled Components](https://www.styled-components.com)
+- Front End
+  - [React JS](https://reactjs.org/)
+  - [Next JS](https://nextjs.org/)
+- Styling Utilities
+  - [Tailwindcss](https://tailwindcss.com/)
+  - [Styled Components](https://www.styled-components.com)
+  - [Twin Macro](https://www.npmjs.com/package/twin.macro)
+- State Management
+  - [Redux](https://redux.js.org/)
+  - [React-Redux](https://react-redux.js.org/)
+  - [Redux-Thunk](https://github.com/reduxjs/redux-thunk)
+  - [Redux-Persist](https://github.com/rt2zz/redux-persist#readme)
 
 ## Contributing
 
@@ -44,11 +56,17 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
+## Credits
+
+- [Fidalgodev](https://github.com/fidalgodev)
+  The Developer of [movies.fidalgo.dev](https://movies.fidalgo.dev/discover/Popular) inspired us for creating this amazing website.
+
 ## Authors
 
-- **Ayush kumar Rout** - _Development_ - [AyushRout](https://github.com/routayush1)
-- **Gaurav** - _Development_ - [Gaurav](https://github.com/gauravdh9)
-- **Soham Singh Yadav** - _Development_ - [SohamSingh](https://github.com/sohamsingh29)
+- [AyushRout](https://github.com/routayush1)
+- [SohamSingh](https://github.com/sohamsingh29)
+- [Gaurav](https://github.com/gauravdh9)
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
