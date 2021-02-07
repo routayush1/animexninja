@@ -35,8 +35,10 @@ npm run build
 ## Built With
 
 - [React JS](https://reactjs.org/)
-- [React Router](https://github.com/ReactTraining/react-router)
+- [Next.Js](https://www.https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 - [Styled Components](https://www.styled-components.com)
+
 
 ## Contributing
 
