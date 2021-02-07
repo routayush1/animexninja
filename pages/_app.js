@@ -1,4 +1,3 @@
-import "react-toastify/dist/ReactToastify.css";
 import tw, { GlobalStyles } from "twin.macro";
 import Navbar from "../components/nav/Navbar";
 import "../styles/globals.css";
@@ -9,6 +8,7 @@ import Sidebar from "../components/sidebar/sidebar";
 import "../styles/svg.css";
 import Head from "next/head";
 import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import countapi from "countapi-js";
