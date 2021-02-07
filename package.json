@@ -1,50 +1,46 @@
 {
-  "name": "untitled",
+  "name": "next-animex",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "12.14.1",
-    "npm": "6.13.4"
+  "scripts": {
+    "build": "next build",
+    "start": "next start",
+    "dev": "next -p 8080"
   },
   "dependencies": {
-    "@fortawesome/react-fontawesome": "^0.1.9",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "countapi-js": "^1.0.1",
-    "diet-cross-origin": "^0.2.3",
-    "hls.js": "^0.13.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-icons": "^3.10.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
-    "react-spinners": "^0.8.3",
-    "serve": "^11.3.2",
-    "styled-components": "^5.1.0",
-    "swiper": "^5.3.8"
+    "@svgr/webpack": "^5.5.0",
+    "autoprefixer": "^10.2.3",
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
+    "countapi-js": "^1.0.2",
+    "lottie-react-web": "^2.2.2",
+    "next": "10.0.5",
+    "postcss": "^8.2.4",
+    "react": "^17.0.1",
+    "react-dark-mode-toggle": "0.0.10",
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0",
+    "react-redux": "^7.2.2",
+    "react-toastify": "^7.0.3",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.1"
   },
-  "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+  "devDependencies": {
+    "babel-plugin-macros": "^3.0.1",
+    "babel-plugin-styled-components": "^1.12.0",
+    "postcss-flexbugs-fixes": "^5.0.1",
+    "postcss-import": "^13.0.0",
+    "postcss-nesting": "^7.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "react-is": "^17.0.1",
+    "tailwindcss": "^2.0.2",
+    "twin.macro": "^2.0.8"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "babelMacros": {
+    "twin": {
+      "preset": "styled-components"
+    }
   }
 }
