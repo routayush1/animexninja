@@ -26,7 +26,7 @@ function Container({ Data = [], heading, page }) {
           <Card {...item} key={index} />
         ))}
       </div>
-      {page ? <PagiNation page={page} /> : null}
+      {page ? <PagiNation page={page} heading={"Page"} /> : null}
     </>
   );
 }

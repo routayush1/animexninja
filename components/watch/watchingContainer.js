@@ -80,7 +80,11 @@ const WatchingContainer = ({ data = [], slug }) => {
       </div>
       <video src={link} width="1024" height="576" controls></video>
 
-      <PagiNation page={[slug[0], slug[1]]} total={data.totalepisode} />
+      <PagiNation
+        page={[slug[0], slug[1]]}
+        heading={"Ep"}
+        total={data.totalepisode}
+      />
     </div>
   );
 };

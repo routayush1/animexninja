@@ -25,7 +25,7 @@ const PageButton = ({ href, children, style }) => {
   );
 };
 
-const PagiNation = ({ page, total }) => {
+const PagiNation = ({ page, total, heading }) => {
   const pgn = parseInt(page[page.length - 1]);
   const nxt =
     page.length == 1 ? String(pgn + 1) : page[0] + "/" + String(pgn + 1);
@@ -36,12 +36,12 @@ const PagiNation = ({ page, total }) => {
       {pgn === 1 ? null : (
         <PageButton style={"absolute left-12"} href={prev} pre={true}>
           <BiLeftArrowAlt size={20} />
-          Page {pgn - 1}
+          {heading} {pgn - 1}
         </PageButton>
       )}
       {pgn != total ? (
         <PageButton style={"absolute right-12"} href={nxt} pre={false}>
-          Page {pgn + 1}
+          {heading} {pgn + 1}
           <BiRightArrowAlt size={20} />
         </PageButton>
       ) : null}
