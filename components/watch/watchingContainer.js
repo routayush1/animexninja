@@ -78,7 +78,7 @@ const WatchingContainer = ({ data = [], slug }) => {
           </Select>
         </div>
       </div>
-      <video src={link} width="1024" height="576" controls></video>
+      <video src={link} width="1024" autoPlay height="576" controls></video>
 
       <PagiNation
         page={[slug[0], slug[1]]}
