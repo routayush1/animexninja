@@ -20,7 +20,7 @@ const DetailsContainer = ({ id, data = [] }) => {
   useEffect(() => {
     const current = myList.filter((item) => item.id == id);
     current.length > 0 ? setClick(true) : setClick(false);
-  }, []);
+  }, [id]);
   const handleClick = () => {
     if (click) {
       setClick(false);
