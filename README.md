@@ -21,7 +21,7 @@ These instructions will get you a copy of the project up and running on your loc
 FIRST YOU NEED TO CLONE [API REPO](https://github.com/routayush1/animexninja-api) AND RUN IT.
 You need to note api local host url. Create an .env.local file on the root of the project and put your local host url
 ```
-BASE_URL=YOUR_LOCALHOST_API_URL 
+BASE_URL="YOUR_LOCALHOST_API_URL/api/"
 ```
 ### Installing
 Clone the Repository and run
