@@ -10,21 +10,27 @@ An Anime Streaming web app to give you a better experience for free.
 
 ## Api Reference
 
-- [anime-x api](https://anime-x.vercel.app/api/home)
+- [API REPO](https://github.com/routayush1/animexninja-api)
   This api is being used in this project.
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+### Prerequisites
+FIRST YOU NEED TO CLONE [API REPO](https://github.com/routayush1/animexninja-api) AND RUN IT.
+You need to note api local host url. Create an .env.local file on the root of the project and put your local host url
+```
+BASE_URL=YOUR_LOCALHOST_API_URL 
+```
 ### Installing
-
 Clone the Repository and run
-
 ```
 npm install
 npm run dev
 ```
+
+
 
 ## Deployment
 
