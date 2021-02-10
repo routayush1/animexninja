@@ -18,4 +18,7 @@ module.exports = {
   images: {
     domains: ["gogocdn.net"],
   },
+  env: {
+    key: process.env.COUNT_API_KEY,
+  },
 };

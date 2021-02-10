@@ -32,12 +32,10 @@ const App = ({ Component, pageProps }) => {
   console.log(resumeId["time"]);
   const router = useRouter();
   useEffect(() => {
-    if (resumeId) toast.info(<Msg resumeId={resumeId.data} />);
-    countapi
-      .update("animex.ninja", "864a5feb-66ee-4c0d-97a6-2f76c1d7e6ad", 1)
-      .then((result) => {
-        setVisit(result.value);
-      });
+    if (resumeId) if (resumeId) toast.info(<Msg resumeId={resumeId.data} />);
+    countapi.update("animex.ninja", process.env.key, 1).then((result) => {
+      setVisit(result.value);
+    });
   }, []);
   return (
     <div className={`${theme.background}  `}>
