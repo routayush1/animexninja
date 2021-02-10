@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -26,16 +26,26 @@ const Select = styled.select`
 `;
 
 const WatchingContainer = ({ data = [], slug }) => {
-  const { theme, loading } = useSelector((state) => state);
+  const Myref = useRef(null);
+  const { theme, loading, resumeId } = useSelector((state) => state);
   const [link, setLink] = useState("");
   const [myList, setMyList] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (data.links?.length > 0 || data.link?.length > 0) {
-      setMyList([...data.links, { link: data.link, name: "iframe" }]);
+    if (data.links?.length > 0) {
+      setMyList([...data.links]);
       setLink(data.links[0].link);
-      dispatch(resumeAction(slug));
+
+      if (Myref.current && resumeId && slug[0] == resumeId.data[0]) {
+        Myref.current.currentTime = parseFloat(resumeId.time);
+      }
+      var myInterval = setInterval(() => {
+        dispatch(
+          resumeAction({ data: slug, time: Myref.current?.currentTime })
+        );
+      }, 5000);
     }
+    return () => clearInterval(myInterval);
   }, [data.links]);
   return loading ? (
     <Loader />
@@ -78,7 +88,14 @@ const WatchingContainer = ({ data = [], slug }) => {
           </Select>
         </div>
       </div>
-      <video src={link} width="1024" autoPlay height="576" controls></video>
+      <video
+        src={link}
+        width="1024"
+        autoPlay
+        height="576"
+        controls
+        ref={Myref}
+      ></video>
 
       <PagiNation
         page={[slug[0], slug[1]]}

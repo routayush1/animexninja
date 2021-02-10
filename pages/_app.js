@@ -17,7 +17,7 @@ const Msg = ({ resumeId }) => {
     <div className="flex flex-col">
       <span>You were watching</span>
       <span className={"uppercase font-bold text-xl"}>
-        {resumeId[0].split("-").join(" ")}
+        {resumeId[0]?.split("-").join(" ")}
       </span>
       <span>
         To Continue Press <span className="text-red-700 text-xl ">here</span>
@@ -29,9 +29,10 @@ const Msg = ({ resumeId }) => {
 const App = ({ Component, pageProps }) => {
   const [visit, setVisit] = useState(0);
   const { theme, resumeId } = useSelector((state) => state);
+  console.log(resumeId["time"]);
   const router = useRouter();
   useEffect(() => {
-    if (resumeId) toast.info(<Msg resumeId={resumeId} />);
+    if (resumeId) toast.info(<Msg resumeId={resumeId.data} />);
     countapi
       .update("animex.ninja", "864a5feb-66ee-4c0d-97a6-2f76c1d7e6ad", 1)
       .then((result) => {
@@ -63,9 +64,12 @@ const App = ({ Component, pageProps }) => {
       </div>
       <ToastContainer
         position={"top-center"}
-        onClick={() => router.push(`/watching/${resumeId[0]}/${resumeId[1]}`)}
+        onClick={() =>
+          router.push(`/watching/${resumeId.data[0]}/${resumeId.data[1]}`)
+        }
         autoClose={false}
         transition={Flip}
+        draggablePercent={30}
       />
     </div>
   );
