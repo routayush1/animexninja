@@ -29,9 +29,9 @@ const Msg = ({ resumeId }) => {
 const App = ({ Component, pageProps }) => {
   const [visit, setVisit] = useState(0);
   const { theme, resumeId } = useSelector((state) => state);
-  console.log(resumeId["time"]);
   const router = useRouter();
   useEffect(() => {
+    localStorage.removeItem("persist:root");
     if (resumeId) if (resumeId) toast.info(<Msg resumeId={resumeId.data} />);
     countapi.update("animex.ninja", process.env.key, 1).then((result) => {
       setVisit(result.value);

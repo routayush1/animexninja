@@ -36,12 +36,20 @@ const WatchingContainer = ({ data = [], slug }) => {
       setMyList([...data.links]);
       setLink(data.links[0].link);
 
-      if (Myref.current && resumeId && slug[0] == resumeId.data[0]) {
+      if (
+        Myref.current &&
+        resumeId &&
+        slug[0] == resumeId.data[0] &&
+        slug[1] == resumeId.data[1]
+      ) {
         Myref.current.currentTime = parseFloat(resumeId.time);
       }
       var myInterval = setInterval(() => {
         dispatch(
-          resumeAction({ data: slug, time: Myref.current?.currentTime })
+          resumeAction({
+            data: slug,
+            time: Myref.current?.currentTime ? Myref.current.currentTime : 0,
+          })
         );
       }, 5000);
     }

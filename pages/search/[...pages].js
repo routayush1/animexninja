@@ -7,7 +7,6 @@ import { asyncDataAction } from "../../redux/actions/asyncDataAction";
 import { URL } from "../../utils/URLS";
 const Search = () => {
   const { data } = useSelector((state) => state);
-  console.log(data);
   const {
     query: { pages },
   } = useRouter();
