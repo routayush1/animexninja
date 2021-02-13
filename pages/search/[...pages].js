@@ -20,7 +20,7 @@ const Search = () => {
 
   return (
     <Layout>
-      <Container Data={data.results} heading={"Genres"} page={pages} />
+      <Container Data={data.results} heading={"Showing Results for"} page={pages} />
     </Layout>
   );
 };

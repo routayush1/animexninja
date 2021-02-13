@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import PagiNation from "../PagiNation";
 import Loader from "../Loader/Loader";
 function Container({ Data = [], heading, page }) {
+  console.log(page)
   const { theme, loading } = useSelector((state) => state);
   return loading ? (
     <Loader />
@@ -16,8 +17,8 @@ function Container({ Data = [], heading, page }) {
         >
           {heading}
         </span>
-        <span className={`${theme.text.selected}`} tw="px-8 font-thin text-xl">
-          {heading != "Genres" ? "Anime" : ""}
+        <span className={`${theme.text.selected}`} tw=" capitalize px-8 font-thin text-xl">
+          {heading=="Showing Results for"?page[0]:heading == "Genres" ?page[0]: "Anime"}
         </span>
       </div>
 
