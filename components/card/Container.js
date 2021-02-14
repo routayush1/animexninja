@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import PagiNation from "../PagiNation";
 import Loader from "../Loader/Loader";
 function Container({ Data = [], heading, page }) {
-  console.log(Data)
   const { theme, loading } = useSelector((state) => state);
   return loading ? (
     <Loader />
