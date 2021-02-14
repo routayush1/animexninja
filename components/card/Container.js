@@ -9,7 +9,7 @@ function Container({ Data = [], heading, page }) {
   return loading ? (
     <Loader />
   ) : (
-    Data.length>0?
+    Data.length>0 && heading!="Showing Results for"?
     <>
       <div tw="mt-28 lg:mt-0">
         <span
@@ -40,7 +40,7 @@ function Container({ Data = [], heading, page }) {
       </div>
       <span className="py-4">
 
-      Nothing found for&nbsp;<span className={`${theme.text.selected} capitalize text-xl font-bold`}>{page[0]}</span>
+      Nothing found for&nbsp;<span className={`${theme.text.selected} capitalize text-xl font-bold`}>{page?.[0]}</span>
       </span>
       </div>
           </div>
