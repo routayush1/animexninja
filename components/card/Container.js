@@ -8,7 +8,7 @@ function Container({ Data = [], heading, page }) {
   return loading ? (
     <Loader />
   ) : (
-    Data.length>0 && heading!="Showing Results for"?
+    Data.length>0?
     <>
       <div tw="mt-28 lg:mt-0">
         <span
