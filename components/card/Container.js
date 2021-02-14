@@ -4,10 +4,12 @@ import { useSelector } from "react-redux";
 import PagiNation from "../PagiNation";
 import Loader from "../Loader/Loader";
 function Container({ Data = [], heading, page }) {
+  console.log(Data)
   const { theme, loading } = useSelector((state) => state);
   return loading ? (
     <Loader />
   ) : (
+    Data.length>0?
     <>
       <div tw="mt-28 lg:mt-0">
         <span
@@ -27,7 +29,21 @@ function Container({ Data = [], heading, page }) {
         ))}
       </div>
       {page ? <PagiNation page={page} heading={"Page"} /> : null}
-    </>
+    </>:<div  className={` flex flex-col h-screen  w-full text-lg`}>
+      <div className={`h-full ${theme.text.notselected} flex flex-col justify-center items-center`}>
+
+    <div className="w-full flex  flex-col justify-start items-center">
+        <img
+          width={400}
+          src={theme.theme == "dark" ? "/404dark.svg" : "/404light.svg"}
+          />
+      </div>
+      <span className="py-4">
+
+      Nothing found for&nbsp;<span className={`${theme.text.selected} capitalize text-xl font-bold`}>{page[0]}</span>
+      </span>
+      </div>
+          </div>
   );
 }
 

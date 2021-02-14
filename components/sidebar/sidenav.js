@@ -57,7 +57,7 @@ const Sidenav = ({ onClick, show, visit }) => {
         <NavContainer links={Genre} heading={"Genres"} />
         <span
           className={`${theme.text.notselected}`}
-          tw="text-lg px-10 w-full justify-start  flex items-center "
+          tw="text-lg pb-10 px-4 w-full justify-start  flex items-center "
         >
           Visits:&nbsp;
           <span className={`${theme.text.selected} text-xl font-bold`}>
