@@ -6,6 +6,23 @@ import PagiNation from "../PagiNation";
 import Loader from "../Loader/Loader";
 import { resumeAction } from "../../redux/actions/resumeAction";
 
+const Data=[{id:1,rate:0.25},{id:2,rate:0.5},{id:3,rate:1},{id:4,rate:1.25},{id:5,rate:1.5},{id:6,rate:2}]
+
+const PlayBack=styled.span`
+
+background: ${({ button,active }) => active?button.background:button.hover.background};
+  color: ${({ button,active }) => active?button.text:button.hover.text};
+
+border:2px solid ${({ button,active }) => active?button.border:button.hover.border};
+&:hover {
+  background: ${({ button }) => button.background};
+  color: ${({ button }) => button.text};
+border:2px solid ${({ button }) => button.border};
+}
+
+`
+
+
 const Select = styled.select`
   appearance: none;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><polygon  points="0,0 100,0 50,50"  style="fill:${({
@@ -55,10 +72,16 @@ const WatchingContainer = ({ data = [], slug }) => {
     }
     return () => clearInterval(myInterval);
   }, [data.links]);
+
+  const handleClick=(rate)=>{
+    Myref.current.playbackRate=rate;
+
+  }
+
   return loading ? (
     <Loader />
   ) : (
-    <div tw=" lg:h-1/3  flex justify-center items-center text-left flex-col h-screen w-full px-2 ">
+    <div tw="relative lg:h-1/3  flex justify-center items-center text-left flex-col h-screen w-full px-2 ">
       <div
         className={` flex flex-col pb-2 xl:w-player justify-between items-center w-full ${theme.text.selected}   my-4`}
       >
@@ -96,6 +119,22 @@ const WatchingContainer = ({ data = [], slug }) => {
           </Select>
         </div>
       </div>
+      <div className="flex w-full justify-center items-center flex-col-reverse lg:flex-row">
+
+      <div className={`flex flex-row lg:flex-col justify-center items-center`}>
+      {Data.map((Item)=><PlayBack
+        button={theme.detailsButton}
+        key={Item.id}
+        tw=" my-4 lg:my-1 mx-2 p-2 flex justify-center items-center w-12 h-12 rounded-full cursor-pointer"
+        className={`shadow-2xl transition-all duration-500`}
+        onClick={()=>handleClick(Item.rate)}
+        active={Myref.current?.playbackRate==Item.rate}
+        >
+        {Item.rate+"x"}
+      </PlayBack>)}
+
+      </div>
+
       <video
         src={link}
         width="1024"
@@ -103,13 +142,13 @@ const WatchingContainer = ({ data = [], slug }) => {
         height="576"
         controls
         ref={Myref}
-      ></video>
-
+        ></video>
+        </div>
       <PagiNation
         page={[slug[0], slug[1]]}
         heading={"Ep"}
         total={data.totalepisode}
-      />
+        />
     </div>
   );
 };
