@@ -9,7 +9,7 @@ const Navbar = ({ visit }) => {
   const { theme } = useSelector((state) => state);
   return (
     <div
-      className={`flex flex-col w-2/12 ${theme.background} ${theme.border.notselected} border-r items-center border-opacity-50 hidden lg:flex `}
+      className={`flex flex-col w-2/12 ${theme.background} ${theme.border.notselected} border-r justify-center items-center border-opacity-50 hidden lg:flex `}
     >
       <Link href="/recentlyadded/1">
         <div
@@ -32,7 +32,7 @@ const Navbar = ({ visit }) => {
       <NavContainer links={Genre} heading={"Genres"} />
       <span
         className={`${theme.text.notselected}`}
-        tw="text-lg px-10 pb-10 w-full justify-start  flex items-center "
+        tw="text-lg px-10  w-full justify-start  flex items-center "
       >
         Visits:&nbsp;
         <span className={`${theme.text.selected} text-xl font-bold`}>
