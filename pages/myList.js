@@ -36,7 +36,7 @@ export const Emessage = ({ message }) => {
 };
 
 const MyList = () => {
-  const { myList, theme } = useSelector((state) => state);
+  const { myList} = useSelector((state) => state);
 
   return (
     <Layout>

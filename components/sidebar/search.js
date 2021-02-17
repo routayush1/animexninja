@@ -1,21 +1,12 @@
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import tw, { styled } from "twin.macro";
+import tw from "twin.macro";
 import axios from "axios";
 import cheerio from "cheerio";
 import Link from "next/link";
 
 import { useRouter } from "next/router";
-
-const Div = styled.div`
-  position: absolute;
-  left: 0;
-  padding: 4px;
-  top: 40px;
-  color: white;
-  background: #1a1c20;
-`;
 
 const Search = () => {
   const router = useRouter();
@@ -75,8 +66,7 @@ const Search = () => {
   return (
     <form className="absolute cursor-pointer right-0" onSubmit={handleSubmit}>
       <div
-        tw=" h-10 w-10  rounded-full flex  p-2.5 shadow-2xl relative right-0"
-        className={`${theme.button.background} ${theme.button.text}  `}
+        className={`${theme.button.background} ${theme.button.text} h-10 w-10  rounded-full flex  p-2.5 shadow-2xl relative right-0`}
         id="search"
         onClick={handleClick}
       >
@@ -85,8 +75,7 @@ const Search = () => {
           value={val}
           autoComplete={"off"}
           onChange={handleSearch}
-          className={`${theme.button.background} ${theme.button.text}  `}
-          tw="border-none outline-none max-w-0 ease-in-out transition-all duration-700"
+          className={`${theme.button.background} ${theme.button.text} border-none outline-none max-w-0 ease-in-out transition-all duration-700`}
           placeholder="Search for anime..."
           id="searchinput"
         />

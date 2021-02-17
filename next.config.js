@@ -20,6 +20,6 @@ module.exports = {
   },
   env: {
     key: process.env.COUNT_API_KEY,
-    BASE_URL: process.env.BASE_URL,
+    URL: process.env.BASE_URL,
   },
 };

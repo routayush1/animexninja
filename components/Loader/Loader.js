@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
-import { keyframes } from "styled-components";
-import { styled } from "twin.macro";
+import styled,{ keyframes } from "styled-components";
 const loader = keyframes`
 
   0% { left:-100px }

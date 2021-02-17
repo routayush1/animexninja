@@ -1,8 +1,8 @@
 export const URL = {
-  POPULAR: process.env.BASE_URL + "popular/",
-  RECENT: process.env.BASE_URL + "recentlyadded/",
-  DETAILS: process.env.BASE_URL + "details/",
-  EPLINK: process.env.BASE_URL + "watching/",
-  GENRES: process.env.BASE_URL + "genre/",
-  SEARCH: process.env.BASE_URL + "search/",
+  POPULAR: process.env.URL + "popular/",
+  RECENT: process.env.URL + "recentlyadded/",
+  DETAILS: process.env.URL + "details/",
+  EPLINK: process.env.URL + "watching/",
+  GENRES: process.env.URL + "genre/",
+  SEARCH: process.env.URL + "search/",
 };

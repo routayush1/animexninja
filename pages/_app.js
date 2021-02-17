@@ -1,4 +1,3 @@
-import tw, { GlobalStyles } from "twin.macro";
 import Navbar from "../components/nav/Navbar";
 import "../styles/globals.css";
 import { PersistGate } from "redux-persist/integration/react";
@@ -55,7 +54,7 @@ const App = ({ Component, pageProps }) => {
         />
       </Head>
       <Sidebar visit={visit} />
-      <GlobalStyles />
+      {/* <GlobalStyles /> */}
       <div className="flex justify-between">
         <Navbar visit={visit} />
         <Component {...pageProps} />

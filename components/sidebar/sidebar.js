@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { CgMenuHotdog } from "react-icons/cg";
-import tw from "twin.macro";
 import Sidenav from "./sidenav";
 import Search from "./search";
 
@@ -12,9 +11,8 @@ const Sidebar = ({ visit }) => {
   return (
     <>
       <div
-        tw="fixed w-full top-0 p-4 shadow-2xl  z-50 lg:shadow-none lg:p-8 lg:relative"
         style={{ height: "75px" }}
-        className={`${theme.background} lg:bg-transparent`}
+        className={`${theme.background} fixed w-full top-0 p-4 shadow-2xl  z-50 lg:shadow-none lg:p-8 lg:relative lg:bg-transparent`}
       >
         <Sidenav
           visit={visit}
@@ -24,7 +22,7 @@ const Sidebar = ({ visit }) => {
           show={show}
         />
 
-        <div id="sidemenu" tw=" flex justify-between relative  w-full ">
+        <div id="sidemenu" className=" flex justify-between relative  w-full ">
           <CgMenuHotdog
             size={35}
             onClick={() => {

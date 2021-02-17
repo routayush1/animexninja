@@ -1,4 +1,3 @@
-import tw from "twin.macro";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { AiFillPlayCircle } from "react-icons/ai";
@@ -35,36 +34,32 @@ const DetailsContainer = ({ id, data = [] }) => {
   ) : (
     <>
       <div
-        className={`${theme.background} ${theme.text.selected}`}
-        tw="w-full  py-20 lg:px-20 lg:py-8 flex justify-center"
+        className={`${theme.background} ${theme.text.selected} w-full  py-20 lg:px-20 lg:py-8 flex justify-center`}
       >
-        <div tw="w-full lg:w-10/12 flex flex-col justify-center items-center lg:(flex-row justify-start items-stretch) ">
-          <div tw="rounded-lg w-8/12 lg:w-4/12 my-8 lg:my-0 shadow-2xl">
-            <img src={data.image} tw=" w-full h-full rounded-lg object-cover" />
+        <div className="w-full lg:w-10/12 flex flex-col justify-center items-center lg:flex-row lg:justify-start lg:items-stretch ">
+          <div className="rounded-lg w-8/12 lg:w-4/12 my-8 lg:my-0 shadow-2xl">
+            <img src={data.image} className=" w-full h-full rounded-lg object-cover" />
           </div>
-          <div tw=" flex flex-col w-11/12 px-0 lg:w-8/12  lg:px-10">
-            <div tw="flex w-full justify-between py-2">
-              <span tw="font-bold text-4xl  md:text-5xl  ">
+          <div className=" flex flex-col w-11/12 px-0 lg:w-8/12  lg:px-10">
+            <div className="flex w-full justify-between py-2">
+              <span className="font-bold text-4xl  md:text-5xl  ">
                 {data.title}
                 <div
-                  className={`${theme.line}`}
-                  tw="h-0.5 mx-2 my-1 w-1/3 rounded-full"
+                  className={`${theme.line} h-0.5 mx-2 my-1 w-1/3 rounded-full`}
                 />
               </span>
               <span
-                tw="text-base font-medium p-2"
-                className={`${theme.text.notselected}`}
+                className={`${theme.text.notselected} text-base font-medium p-2`}
               >
                 {data.type}
               </span>
             </div>
 
-            <div tw="flex flex-col w-full ">
-              <span tw=" flex justify-between w-full items-end font-bold text-3xl">
+            <div className="flex flex-col w-full ">
+              <span className="flex justify-between w-full items-end font-bold text-3xl">
                 The Synopsis
                 <span
-                  tw=" w-12 h-12 hover:scale-110 transform transition-all duration-200"
-                  className={`${theme.text.notselected} `}
+                  className={`${theme.text.notselected} w-12 h-12 hover:scale-110 transform transition-all duration-200`}
                   onClick={handleClick}
                 >
                   <Lottie
@@ -76,35 +71,34 @@ const DetailsContainer = ({ id, data = [] }) => {
                   />
                 </span>
               </span>
-              <span tw="text-base font-light p-2">{data.summary}</span>
+              <span className="text-base font-light p-2">{data.summary}</span>
             </div>
-            <div tw="flex w-full justify-between items-center">
-              <div tw="flex flex-col py-3">
-                <span tw="font-bold text-xl">Released</span>
-                <span tw="px-2" className={`${theme.text.notselected}`}>
+            <div className="flex w-full justify-between items-center">
+              <div className="flex flex-col py-3">
+                <span className="font-bold text-xl">Released</span>
+                <span className={`${theme.text.notselected} px-2`}>
                   {data.relased}
                 </span>
               </div>
 
-              <div tw="flex flex-col py-3">
-                <span tw="font-bold text-xl">Status</span>
-                <span tw="" className={`${theme.text.notselected}`}>
+              <div className="flex flex-col py-3">
+                <span className="font-bold text-xl">Status</span>
+                <span className={`${theme.text.notselected}`}>
                   {data.status}
                 </span>
               </div>
             </div>
-            <div tw="py-2 w-10/12">
-              <span tw="text-xl font-bold">The Genres</span>
+            <div className="py-2 w-10/12">
+              <span className="text-xl font-bold">The Genres</span>
               <span
-                tw="flex flex-row flex-wrap w-full items-center"
-                className={`${theme.text.notselected}`}
+                className={`${theme.text.notselected} flex flex-row flex-wrap w-full items-center`}
               >
                 {data.genres?.split(", ").map((Item, index) => (
                   <Link
                     href={`/genre/${Item.split(" ").join("-")}/1`}
                     key={index}
                   >
-                    <span tw=" py-1 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-500">
+                    <span className=" py-1 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-500">
                       <AiFillPlayCircle
                         size={13}
                         style={{ margin: "0px 10px" }}
@@ -115,9 +109,9 @@ const DetailsContainer = ({ id, data = [] }) => {
                 ))}
               </span>
             </div>
-            <div tw="flex flex-col py-4">
-              <span tw="text-xl font-bold">Total Episodes</span>
-              <span tw="text-sm font-bold p-2">{data.totalepisode}</span>
+            <div className="flex flex-col py-4">
+              <span className="text-xl font-bold">Total Episodes</span>
+              <span className="text-sm font-bold p-2">{data.totalepisode}</span>
             </div>
           </div>
         </div>

@@ -1,4 +1,3 @@
-import tw from "twin.macro";
 import NavContainer from "../nav/nav_container/navcontainer";
 import { Discover, Genre } from "../../utils/data";
 import Toggle from "../nav/Toggle";
@@ -39,8 +38,7 @@ const Sidenav = ({ onClick, show, visit }) => {
         </div>
         <Link href="/recentlyadded/1">
           <div
-            className={`${theme.text.selected}`}
-            tw="  cursor-pointer text-4xl  justify-center flex-col  flex items-center text-center"
+            className={`${theme.text.selected} cursor-pointer text-4xl  justify-center flex-col  flex items-center text-center`}
           >
             <Image
               width={150}
@@ -56,8 +54,7 @@ const Sidenav = ({ onClick, show, visit }) => {
         <NavContainer links={Discover} heading={"Discover"} />
         <NavContainer links={Genre} heading={"Genres"} />
         <span
-          className={`${theme.text.notselected}`}
-          tw="text-lg pb-10 px-4 w-full justify-start  flex items-center "
+          className={`${theme.text.notselected} text-lg pb-10 px-4 w-full justify-start  flex items-center `}
         >
           Visits:&nbsp;
           <span className={`${theme.text.selected} text-xl font-bold`}>

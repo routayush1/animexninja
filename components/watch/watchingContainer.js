@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import tw from "twin.macro";
 import styled from "styled-components";
 import PagiNation from "../PagiNation";
 import Loader from "../Loader/Loader";
@@ -81,7 +80,7 @@ const WatchingContainer = ({ data = [], slug }) => {
   return loading ? (
     <Loader />
   ) : (
-    <div tw="relative lg:h-1/3  flex justify-center items-center text-left flex-col h-screen w-full px-2 ">
+    <div className="relative lg:h-1/3  flex justify-center items-center text-left flex-col h-screen w-full px-2 ">
       <div
         className={` flex flex-col pb-2 xl:w-player justify-between items-center w-full ${theme.text.selected}   my-4`}
       >
@@ -89,7 +88,7 @@ const WatchingContainer = ({ data = [], slug }) => {
           <span className={`font-semibold text-2xl lg:text-4xl`}>
             {slug[0].replaceAll("-", " ")}
           </span>
-          <div className={`${theme.line}`} tw="rounded-full h-0.5 w-1/4" />
+          <div className={`${theme.line} rounded-full h-0.5 w-1/4`}  />
         </div>
         <div className="flex w-full justify-between items-end">
           <span className={`${theme.text.notselected}  text-3xl lg:text-3xl`}>
@@ -125,8 +124,7 @@ const WatchingContainer = ({ data = [], slug }) => {
       {Data.map((Item)=><PlayBack
         button={theme.detailsButton}
         key={Item.id}
-        tw=" my-4 lg:my-1 mx-2 p-2 flex justify-center items-center w-12 h-12 rounded-full cursor-pointer"
-        className={`shadow-2xl transition-all duration-500`}
+        className={`shadow-2xl transition-all duration-500 my-4 lg:my-1 mx-2 p-2 flex justify-center items-center w-12 h-12 rounded-full cursor-pointer`}
         onClick={()=>handleClick(Item.rate)}
         active={Myref.current?.playbackRate==Item.rate}
         >

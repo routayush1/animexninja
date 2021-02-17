@@ -1,4 +1,4 @@
-import tw, { styled } from "twin.macro";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 
@@ -68,17 +68,16 @@ const Card = ({ title, id, image, episodenumber }) => {
       }
     >
       <MovieWrapper
-        className={`${theme.card.text} ${theme.card.bghover}`}
-        tw="cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col "
+        className={`${theme.card.text} ${theme.card.bghover}cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
         card={theme.card}
       >
         <MovieImg
-          tw="w-full object-cover rounded-xl h-60 xl:h-96 md:h-72 lg:h-80"
+          className="w-full object-cover rounded-xl h-60 xl:h-96 md:h-72 lg:h-80"
           src={image}
           loading="lazy"
         />
         <DetailsWrapper>
-          <Title tw="text-lg w-full h-1/6  p-4">{title}</Title>
+          <Title className="text-lg w-full h-1/6  p-4">{title}</Title>
         </DetailsWrapper>
       </MovieWrapper>
     </Link>
