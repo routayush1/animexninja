@@ -20,7 +20,7 @@ function Container({ Data = [], heading, page }) {
         </span>
       </div>
 
-      <div className="grid grid-cols-2  w-full px-10 my-6  gap-10  justify-center  md:grid-cols-3 lg:grid-cols-4 lg:px-16 lg:my-16   xl:grid-cols-5 xl:gap-8">
+      <div className="grid grid-cols-2  w-full px-10 my-6  gap-10  justify-center  md:grid-cols-3 lg:grid-cols-3 lg:px-16 lg:my-16   xl:grid-cols-5 xl:gap-8">
         {Data?.map((item, index) => (
           <Card {...item} key={index} />
         ))}
