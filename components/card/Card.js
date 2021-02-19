@@ -68,7 +68,7 @@ const Card = ({ title, id, image, episodenumber }) => {
       }
     >
       <MovieWrapper
-        className={`${theme.card.text} ${theme.card.bghover}cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
+        className={`${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
         card={theme.card}
       >
         <MovieImg
