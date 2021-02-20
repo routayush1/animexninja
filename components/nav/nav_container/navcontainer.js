@@ -45,7 +45,7 @@ const NavContainer = ({ links, heading }) => {
       >
         {heading}
       </span>
-      <div className={`${theme.line} h-0.5 mx-2 w-1/12`} />
+      <div className={`bg-gray-400 rounded-full h-0.5 mx-2 w-1/12`} />
 
       <div className="text-base flex flex-col my-1.5">
         {links?.map((Item) => (

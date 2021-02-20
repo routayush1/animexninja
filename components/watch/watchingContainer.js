@@ -4,6 +4,7 @@ import styled from "styled-components";
 import PagiNation from "../PagiNation";
 import Loader from "../Loader/Loader";
 import { resumeAction } from "../../redux/actions/resumeAction";
+import Link from "next/link";
 
 const Data=[{id:1,rate:0.25},{id:2,rate:0.5},{id:3,rate:1},{id:4,rate:1.25},{id:5,rate:1.5},{id:6,rate:2}]
 
@@ -41,7 +42,9 @@ const Select = styled.select`
   }
 `;
 
+
 const WatchingContainer = ({ data = [], slug }) => {
+  console.log(slug)
   const Myref = useRef(null);
   const { theme, loading, resumeId } = useSelector((state) => state);
   const [link, setLink] = useState("");
@@ -85,13 +88,17 @@ const WatchingContainer = ({ data = [], slug }) => {
         className={` flex flex-col pb-2 xl:w-player justify-between items-center w-full ${theme.text.selected}   my-4`}
       >
         <div className="w-full py-4 uppercase flex flex-col items-start lg:items-start">
-          <span className={`font-semibold text-2xl lg:text-4xl`}>
+          <Link href={`/details/${slug[0]}`}>
+          <span className={`font-light text-2xl lg:text-4xl ml-0 lg:ml-7 cursor-pointer text-blue-500`}>
             {slug[0].replaceAll("-", " ")}
           </span>
+
+          </Link>
+          <div className={`bg-gray-400 rounded-full h-0.5 ml-0 lg:ml-7 w-1/12`} />
           <div className={`${theme.line} rounded-full h-0.5 w-1/4`}  />
         </div>
         <div className="flex w-full justify-between items-end">
-          <span className={`${theme.text.notselected}  text-3xl lg:text-3xl`}>
+          <span className={`${theme.text.selected} ml-0 lg:ml-7 text-3xl lg:text-3xl`}>
             {"Ep:" + slug[1]}
           </span>
           <Select
@@ -140,6 +147,8 @@ const WatchingContainer = ({ data = [], slug }) => {
         height="576"
         controls
         ref={Myref}
+        style={{    boxShadow:" 0rem 2rem 5rem rgba(0, 0, 0, 0.2)"
+        }}
         ></video>
         </div>
       <PagiNation
