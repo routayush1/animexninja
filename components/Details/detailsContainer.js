@@ -34,7 +34,8 @@ const DetailsContainer = ({ id, data = [] }) => {
   ) : (
     <>
       <div
-        className={`${theme.background} ${theme.text.selected} w-full  py-20 lg:px-20 lg:py-8 flex justify-center`}
+        className={`${theme.background} ${theme.text.selected} w-full  py-20 lg:px-20  lg:py-8 flex justify-center`}
+
       >
         <div className="w-full lg:w-10/12 flex flex-col justify-center items-center lg:flex-row lg:justify-start lg:items-stretch ">
           <div className="rounded-lg w-8/12 lg:w-4/12 my-8 lg:my-0 shadow-2xl">
@@ -91,14 +92,14 @@ const DetailsContainer = ({ id, data = [] }) => {
             <div className="py-2 w-10/12">
               <span className="text-xl font-bold">The Genres</span>
               <span
-                className={`${theme.text.notselected} flex flex-row flex-wrap w-full items-center`}
+                className={`${theme.text.notselected} flex flex-row justify-between w-full items-center`}
               >
                 {data.genres?.split(", ").map((Item, index) => (
                   <Link
                     href={`/genre/${Item.split(" ").join("-")}/1`}
                     key={index}
                   >
-                    <span className=" py-1 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-500">
+                    <span className=" py-1 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-200">
                       <AiFillPlayCircle
                         size={13}
                         style={{ margin: "0px 10px" }}
