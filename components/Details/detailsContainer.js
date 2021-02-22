@@ -50,14 +50,14 @@ const DetailsContainer = ({ id, data = [] }) => {
                 />
               </span>
               <span
-                className={`${theme.text.notselected} text-base font-medium p-2`}
+                className={`${theme.text.selected} text-base font-medium p-2`}
               >
                 {data.type}
               </span>
             </div>
 
             <div className="flex flex-col w-full ">
-              <span className="flex justify-between w-full items-end font-bold text-3xl">
+              <span className="flex text-blue-500 justify-between w-full items-end font-bold text-3xl">
                 The Synopsis
                 <span
                   className={`${theme.text.notselected} w-12 h-12 hover:scale-110 transform transition-all duration-200`}
@@ -72,7 +72,7 @@ const DetailsContainer = ({ id, data = [] }) => {
                   />
                 </span>
               </span>
-              <span className="text-base font-light p-2">{data.summary}</span>
+              <span className="text-base  font-light p-2">{data.summary}</span>
             </div>
             <div className="flex w-full justify-between items-center">
               <div className="flex flex-col py-3">
@@ -92,18 +92,19 @@ const DetailsContainer = ({ id, data = [] }) => {
             <div className="py-2 w-10/12">
               <span className="text-xl font-bold">The Genres</span>
               <span
-                className={`${theme.text.notselected} flex flex-row justify-between w-full items-center`}
+                className={`${theme.text.notselected} flex flex-row flex-wrap justify-start w-full items-center`}
               >
                 {data.genres?.split(", ").map((Item, index) => (
                   <Link
                     href={`/genre/${Item.split(" ").join("-")}/1`}
                     key={index}
                   >
-                    <span className=" py-1 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-200">
+                    <span className=" py-1 mr-2 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-200">
                       <AiFillPlayCircle
                         size={13}
                         style={{ margin: "0px 10px" }}
                       />
+
                       {Item}
                     </span>
                   </Link>
