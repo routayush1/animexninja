@@ -53,7 +53,7 @@ const WatchingContainer = ({ data = [], slug }) => {
   useEffect(() => {
     if (data.links?.length > 0) {
       setMyList([...data.links]);
-      setLink(data.links[0].link);
+      setLink(data.links[0].src);
 
       if (
         Myref.current &&
@@ -115,9 +115,9 @@ const WatchingContainer = ({ data = [], slug }) => {
                 <option
                   key={index}
                   className={`${theme.text.notselected} ${theme.border.selected} border outline-none`}
-                  value={item.link}
+                  value={item.src}
                 >
-                  {item.name.replace(/[()]/g, "")}
+                  {item.type.replace(/[()]/g, "")}
                 </option>
               );
             })}
