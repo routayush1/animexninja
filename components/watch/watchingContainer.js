@@ -117,7 +117,7 @@ const WatchingContainer = ({ data = [], slug }) => {
                   className={`${theme.text.notselected} ${theme.border.selected} border outline-none`}
                   value={item.src}
                 >
-                  {item.type.replace(/[()]/g, "")}
+                  {item.size.replace(/[()]/g, "")}
                 </option>
               );
             })}
