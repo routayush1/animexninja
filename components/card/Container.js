@@ -15,7 +15,7 @@ function Container({ Data = [], heading, page }) {
         >
           {heading}
         </span>
-        <span className={`${theme.text.selected}  capitalize px-8 font-thin text-xl`} >
+        <span className={`text-blue-500 capitalize px-8 font-thin text-xl`} >
           {heading=="Showing Results for"?page[0]:heading == "Genres" ?page[0]: "Anime"}
         </span>
       </div>
