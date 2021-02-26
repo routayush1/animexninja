@@ -15,11 +15,7 @@ function Container({ Data = [], heading, page,Icon }) {
         >
           {Icon?<Icon size={15} style={{ margin: "0px 10px 0px 0px",color:heading=="My List"?"red":theme.text.selected }} />:""}{heading}
         </span>
-<<<<<<< HEAD
-        <span className={`${theme.text.selected}  capitalize px-16 font-thin text-xl`} >
-=======
-        <span className={`text-blue-500 capitalize px-8 font-thin text-xl`} >
->>>>>>> e16b36b8d8b0193f38436fc65a78350db8fca0af
+        <span className={`text-blue-500  capitalize px-16 font-thin text-xl`} >
           {heading=="Showing Results for"?page[0]:heading == "Genres" ?page[0]: "Anime"}
         </span>
       </div>
