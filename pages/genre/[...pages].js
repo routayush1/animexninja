@@ -5,6 +5,9 @@ import Container from "../../components/card/Container";
 import Layout from "../../components/Layout";
 import { asyncDataAction } from "../../redux/actions/asyncDataAction";
 import { URL } from "../../utils/URLS";
+import {
+  AiFillPlayCircle,
+} from "react-icons/ai";
 const Genres = () => {
   const { data } = useSelector((state) => state);
   const {
@@ -20,7 +23,7 @@ const Genres = () => {
 
   return (
     <Layout>
-      <Container Data={data.results} heading={"Genres"} page={pages} />
+      <Container Data={data.results} Icon={AiFillPlayCircle} heading={"Genres"} page={pages} />
     </Layout>
   );
 };

@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Container from "../../components/card/Container";
 import Layout from "../../components/Layout";
 import { asyncDataAction } from "../../redux/actions/asyncDataAction";
-4;
+import {Discover} from "../../utils/data"
+
 import { URL } from "../../utils/URLS";
 const Recently = () => {
   const { data } = useSelector((state) => state);
@@ -25,6 +26,7 @@ const Recently = () => {
         Data={data.results}
         heading={"Recently Added"}
         page={[pages]}
+        Icon={Discover[0].icon}
       />
     </Layout>
   );

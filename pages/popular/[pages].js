@@ -5,6 +5,7 @@ import Container from "../../components/card/Container";
 import Layout from "../../components/Layout";
 import { asyncDataAction } from "../../redux/actions/asyncDataAction";
 import { URL } from "../../utils/URLS";
+import {Discover} from "../../utils/data"
 const Popular = () => {
   const { data } = useSelector((state) => state);
   const router = useRouter();
@@ -21,7 +22,7 @@ const Popular = () => {
 
   return (
     <Layout>
-      <Container Data={data.results} heading={"Popular"} page={[pages]} />
+      <Container Data={data.results} heading={"Popular"} Icon={Discover[1].icon} page={[pages]} />
     </Layout>
   );
 };

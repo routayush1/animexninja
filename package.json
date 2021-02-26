@@ -36,7 +36,6 @@
     "postcss-nesting": "^7.0.1",
     "postcss-preset-env": "^6.7.0",
     "react-is": "^17.0.1",
-    "tailwindcss": "^2.0.2",
-    "twin.macro": "^2.0.8"
+    "tailwindcss": "^2.0.2"
   }
 }

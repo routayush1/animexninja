@@ -2,7 +2,7 @@ import Card from "./Card";
 import { useSelector } from "react-redux";
 import PagiNation from "../PagiNation";
 import Loader from "../Loader/Loader";
-function Container({ Data = [], heading, page }) {
+function Container({ Data = [], heading, page,Icon }) {
   const { theme, loading } = useSelector((state) => state);
   return loading ? (
     <Loader />
@@ -11,11 +11,11 @@ function Container({ Data = [], heading, page }) {
     <>
       <div className="mt-28 lg:mt-0">
         <span
-          className={`${theme.text.selected} px-8 flex flex-col font-light  text-3xl`}
+          className={`${theme.text.selected} px-8 flex  font-light items-center  text-3xl`}
         >
-          {heading}
+          {Icon?<Icon size={15} style={{ margin: "0px 10px 0px 0px",color:heading=="My List"?"red":theme.text.selected }} />:""}{heading}
         </span>
-        <span className={`${theme.text.selected}  capitalize px-8 font-thin text-xl`} >
+        <span className={`${theme.text.selected}  capitalize px-16 font-thin text-xl`} >
           {heading=="Showing Results for"?page[0]:heading == "Genres" ?page[0]: "Anime"}
         </span>
       </div>

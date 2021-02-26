@@ -54,7 +54,6 @@ const App = ({ Component, pageProps }) => {
         />
       </Head>
       <Sidebar visit={visit} />
-      {/* <GlobalStyles /> */}
       <div className="flex justify-between">
         <Navbar visit={visit} />
         <Component {...pageProps} />

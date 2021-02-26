@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import tw from "twin.macro";
 import axios from "axios";
 import cheerio from "cheerio";
 import Link from "next/link";
