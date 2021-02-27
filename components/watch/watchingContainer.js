@@ -44,7 +44,6 @@ const Select = styled.select`
 
 
 const WatchingContainer = ({ data = [], slug }) => {
-  console.log(slug)
   const Myref = useRef(null);
   const { theme, loading, resumeId } = useSelector((state) => state);
   const [link, setLink] = useState("");

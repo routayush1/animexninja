@@ -21,7 +21,7 @@ const Recently = () => {
   }, [pages]);
 
   return (
-    <Layout>
+  <Layout>
       <Container
         Data={data.results}
         heading={"Recently Added"}

@@ -75,6 +75,7 @@ const Card = ({ title, id, image, episodenumber }) => {
           className="w-full object-cover rounded-xl h-60 xl:h-96 md:h-72 lg:h-80"
           src={image}
           loading="lazy"
+          alt={title}
         />
         <DetailsWrapper>
           <Title className="text-lg w-full h-1/6  p-4">{title}</Title>

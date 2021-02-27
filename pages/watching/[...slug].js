@@ -20,7 +20,7 @@ const Recently = () => {
   }, [slug]);
 
   return (
-    <Layout>{slug && <WatchingContainer data={data} slug={slug} />}</Layout>
+    <Layout title={"Watching "+slug[0]}>{slug && <WatchingContainer data={data} slug={slug} />}</Layout>
   );
 };
 

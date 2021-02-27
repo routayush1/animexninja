@@ -40,7 +40,7 @@ const MyList = () => {
   const { myList} = useSelector((state) => state);
   
   return (
-    <Layout>
+    <Layout title={"My List"}>
       {myList.length > 0 ? (
         <Container Data={myList} heading={"My List"} Icon={Discover[2].icon}
  />

@@ -19,7 +19,7 @@ const Msg = ({ resumeId }) => {
         {resumeId[0]?.split("-").join(" ")}
       </span>
       <span>
-        To Continue Press <span className="text-red-700 text-xl ">here</span>
+        To Continue Press <span className="text-yellow-300 text-xl ">here</span>
       </span>
     </div>
   );
@@ -39,7 +39,6 @@ const App = ({ Component, pageProps }) => {
   return (
     <div className={`${theme.background}  `}>
       <Head>
-        <title>Animex</title>
         <meta charset="utf-8" />
         <link rel="icon" href={"/shuriken.svg"} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

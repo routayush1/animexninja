@@ -4,7 +4,7 @@ import { Emessage } from "./myList";
 
 const Error = () => {
   return (
-    <Layout>
+    <Layout title={"Error"}>
       <Emessage />
     </Layout>
   );
