@@ -21,7 +21,7 @@ const Search = () => {
   }, [pages]);
 
   return (
-    <Layout title={pages[0]}>
+    <Layout title={pages?.[0]}>
       <Container Data={data.results} heading={"Showing Results for"} page={pages} Icon={FaSearch} />
     </Layout>
   );

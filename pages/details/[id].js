@@ -19,7 +19,7 @@ const Details = () => {
   }, [id]);
 
   return (
-    <Layout title={data.results[0].title}>
+    <Layout title={data.results?.[0].title}>
       {data.results && <DetailsContainer id={id} data={data.results[0]} />}
     </Layout>
   );

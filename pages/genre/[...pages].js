@@ -22,7 +22,7 @@ const Genres = () => {
   }, [pages]);
 
   return (
-    <Layout title={pages[0]}>
+    <Layout title={pages?.[0]}>
       <Container Data={data.results} Icon={AiFillPlayCircle} heading={"Genres"} page={pages} />
     </Layout>
   );
