@@ -4,8 +4,7 @@ import Toggle from "../nav/Toggle";
 import { useSelector } from "react-redux";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
+
 const Sidenav = ({ onClick, show, visit }) => {
   const { theme } = useSelector((state) => state);
   useEffect(() => {
@@ -36,21 +35,7 @@ const Sidenav = ({ onClick, show, visit }) => {
             className={` cursor-pointer  rounded-full p-1  `}
           />
         </div>
-        <Link href="/recentlyadded/1">
-          <div
-            className={`${theme.text.selected} cursor-pointer text-4xl  justify-center flex-col  flex items-center text-center`}
-          >
-            <Image
-              width={150}
-              height={125}
-              src={
-                theme.theme == "dark"
-                  ? "/animexlogodark.svg"
-                  : "/animexlogolight.svg"
-              }
-            />
-          </div>
-        </Link>
+
         <NavContainer links={Discover} heading={"Discover"} />
         <NavContainer links={Genre} heading={"Genres"} />
         <span

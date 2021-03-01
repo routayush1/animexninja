@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { CgMenuHotdog } from "react-icons/cg";
 import Sidenav from "./sidenav";
 import Search from "./search";
-
+import Image from "next/image";
+import Link from "next/link";
 const Sidebar = ({ visit }) => {
   const { theme } = useSelector((state) => state);
   const [show, setShow] = useState(false);
@@ -22,7 +23,22 @@ const Sidebar = ({ visit }) => {
           show={show}
         />
 
-        <div id="sidemenu" className=" flex justify-between relative  w-full ">
+        <div id="sidemenu" className=" flex justify-center relative  w-full ">
+          <Link href="/recentlyadded/1">
+            <div
+              className={`${theme.text.selected} lg:hidden absolute cursor-pointer`}
+            >
+              <Image
+                width={140}
+                height={40}
+                src={
+                  theme.theme == "dark"
+                    ? "/animexlogodarksidebar.svg"
+                    : "/animexlogolightsidebar.svg"
+                }
+              />
+            </div>
+          </Link>
           <CgMenuHotdog
             size={35}
             onClick={() => {
