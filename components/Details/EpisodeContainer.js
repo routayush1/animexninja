@@ -13,7 +13,7 @@ const EpButton = styled.div`
   }
 `;
 
-const EpisodeContainer = ({ id, number, image }) => {
+const EpisodeContainer = ({ title, id, number, image }) => {
   var myArray = [];
   const myFunc = () => {
     for (let i = number; i >= 1; i--) {
@@ -23,10 +23,13 @@ const EpisodeContainer = ({ id, number, image }) => {
   const theme = useSelector((state) => state.theme);
   return (
     <div className="w-full flex flex-col py-0 px-5 lg:px-20">
-      <span className={`${theme.text.selected} font-bold text-3xl py-8`}>
-        Episodes
+      <span
+        className={`${theme.text.selected} flex flex-col font-bold text-3xl py-5`}
+      >
+        <span>{title}</span>
+        <span className={"text-blue-500 text-lg"}> 1-{number}</span>
       </span>
-      <div className="grid grid-cols-3 gap-2 lg:grid-cols-5 py-8 lg:gap-8 w-full md:grid-cols-4 xl:grid-cols-6">
+      <div className="grid grid-cols-3 gap-2 lg:grid-cols-4 py-8 lg:gap-8 w-full md:grid-cols-5 xl:grid-cols-6">
         {
           (myFunc(),
           myArray.map((index) => (
