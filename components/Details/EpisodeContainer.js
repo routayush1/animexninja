@@ -27,7 +27,9 @@ const EpisodeContainer = ({ title, id, number, image }) => {
         className={`${theme.text.selected} flex flex-col font-bold text-3xl py-5`}
       >
         <span>{title}</span>
-        <span className={"text-blue-500 text-lg"}> 1-{number}</span>
+        <span className={"text-blue-500 text-lg"}>
+          {number != 0 ? number + " -1" : "Coming Soon"}
+        </span>
       </span>
       <div className="grid grid-cols-3 gap-2 lg:grid-cols-4 py-8 lg:gap-8 w-full md:grid-cols-5 xl:grid-cols-6">
         {
@@ -47,7 +49,7 @@ const EpisodeContainer = ({ title, id, number, image }) => {
                   />
                 </div>
                 <span className="w-2/3 flex justify-center items-center text-center h-full">
-                  Ep &nbsp;<span className={"font-semibold"}>{index}</span>
+                  Ep -<span className={"font-semibold"}>{index}</span>
                 </span>
               </EpButton>
             </Link>

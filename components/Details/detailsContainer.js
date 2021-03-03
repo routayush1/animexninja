@@ -61,7 +61,7 @@ const DetailsContainer = ({ id, data = [] }) => {
 
             <div className="flex flex-col w-full ">
               <span className="flex text-blue-500 justify-between w-full items-end font-bold text-3xl">
-                The Synopsis
+                Synopsis
                 <span
                   className={`${theme.text.notselected} w-12 h-12 hover:scale-110 transform transition-all duration-200`}
                   onClick={handleClick}
@@ -106,6 +106,7 @@ const DetailsContainer = ({ id, data = [] }) => {
                       <AiFillPlayCircle
                         size={13}
                         style={{ margin: "0px 10px" }}
+                        className="text-blue-500"
                       />
 
                       {Item}
