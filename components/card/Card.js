@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import { AiFillCalendar } from "react-icons/ai";
 
 const MovieWrapper = styled.a`
   display: flex;
@@ -59,7 +60,7 @@ const DetailsWrapper = styled.div`
   align-items: center;
 `;
 
-const Card = ({ title, id, image, episodenumber }) => {
+const Card = ({ title, id, heading, image, episodenumber }) => {
   const theme = useSelector((state) => state.theme);
   return (
     <Link
@@ -68,7 +69,7 @@ const Card = ({ title, id, image, episodenumber }) => {
       }
     >
       <MovieWrapper
-        className={`${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
+        className={`relative ${theme.card.text} ${theme.card.bghover} cursor-pointer items-center rounded-xl w-full text-center justify-start flex flex-col  `}
         card={theme.card}
       >
         <MovieImg
@@ -77,6 +78,11 @@ const Card = ({ title, id, image, episodenumber }) => {
           loading="lazy"
           alt={title}
         />
+        {heading == "Recently Added" ? (
+          <span className="absolute left-0 bottom-20 p-4 ">
+            <AiFillCalendar size={15} className={"text-blue-500"} />
+          </span>
+        ) : null}
         <DetailsWrapper>
           <Title className="text-lg w-full h-1/6  p-4">{title}</Title>
         </DetailsWrapper>
