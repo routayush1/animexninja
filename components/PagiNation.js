@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BiRightArrowAlt, BiLeftArrowAlt } from "react-icons/bi";
 import { useSelector } from "react-redux";
-import styled from "styled-components"
+import styled from "styled-components";
 const PB = styled.span`
   &:hover {
     background: ${({ button }) => button.hover.background};
