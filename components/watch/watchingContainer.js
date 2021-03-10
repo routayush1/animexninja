@@ -6,22 +6,28 @@ import Loader from "../Loader/Loader";
 import { resumeAction } from "../../redux/actions/resumeAction";
 import Link from "next/link";
 
-const Data=[{id:1,rate:0.25},{id:2,rate:0.5},{id:3,rate:1},{id:4,rate:1.25},{id:5,rate:1.5},{id:6,rate:2}]
+const Data = [
+  { id: 1, rate: 0.25 },
+  { id: 2, rate: 0.5 },
+  { id: 3, rate: 1 },
+  { id: 4, rate: 1.25 },
+  { id: 5, rate: 1.5 },
+  { id: 6, rate: 2 },
+];
 
-const PlayBack=styled.span`
+const PlayBack = styled.span`
+  background: ${({ button, active }) =>
+    active ? button.background : button.hover.background};
+  color: ${({ button, active }) => (active ? button.text : button.hover.text)};
 
-background: ${({ button,active }) => active?button.background:button.hover.background};
-  color: ${({ button,active }) => active?button.text:button.hover.text};
-
-border:2px solid ${({ button,active }) => active?button.border:button.hover.border};
-&:hover {
-  background: ${({ button }) => button.background};
-  color: ${({ button }) => button.text};
-border:2px solid ${({ button }) => button.border};
-}
-
-`
-
+  border: 2px solid
+    ${({ button, active }) => (active ? button.border : button.hover.border)};
+  &:hover {
+    background: ${({ button }) => button.background};
+    color: ${({ button }) => button.text};
+    border: 2px solid ${({ button }) => button.border};
+  }
+`;
 
 const Select = styled.select`
   appearance: none;
@@ -41,7 +47,6 @@ const Select = styled.select`
     color: ${({ button }) => button.hover.text};
   }
 `;
-
 
 const WatchingContainer = ({ data = [], slug }) => {
   const Myref = useRef(null);
@@ -74,10 +79,9 @@ const WatchingContainer = ({ data = [], slug }) => {
     return () => clearInterval(myInterval);
   }, [data.links]);
 
-  const handleClick=(rate)=>{
-    Myref.current.playbackRate=rate;
-
-  }
+  const handleClick = (rate) => {
+    Myref.current.playbackRate = rate;
+  };
 
   return loading ? (
     <Loader />
@@ -88,15 +92,20 @@ const WatchingContainer = ({ data = [], slug }) => {
       >
         <div className="w-full py-4 uppercase flex flex-col items-start lg:items-start">
           <Link href={`/details/${slug[0]}`}>
-          <span className={`font-light text-2xl lg:text-4xl ml-0 lg:ml-7 cursor-pointer text-blue-500`}>
-            {slug[0].replaceAll("-", " ")}
-          </span>
-
+            <span
+              className={`font-light text-2xl lg:text-4xl ml-0 lg:ml-10 cursor-pointer text-blue-500`}
+            >
+              {slug[0].replaceAll("-", " ")}
+            </span>
           </Link>
-          <div className={`bg-gray-400 rounded-full h-0.5 ml-0 lg:ml-8 w-1/12`} />
+          <div
+            className={`bg-gray-400 rounded-full h-0.5 ml-0 lg:ml-11 w-1/12`}
+          />
         </div>
         <div className="flex w-full justify-between items-end">
-          <span className={`${theme.text.selected} ml-0 lg:ml-7 text-3xl lg:text-3xl`}>
+          <span
+            className={`${theme.text.selected} ml-0 lg:ml-10 text-3xl lg:text-3xl`}
+          >
             {"Ep:" + slug[1]}
           </span>
           <Select
@@ -124,36 +133,38 @@ const WatchingContainer = ({ data = [], slug }) => {
         </div>
       </div>
       <div className="flex w-full justify-center items-center flex-col-reverse lg:flex-row">
-
-      <div className={`flex flex-row lg:flex-col justify-center items-center`}>
-      {Data.map((Item)=><PlayBack
-        button={theme.detailsButton}
-        key={Item.id}
-        className={`shadow-2xl transition-all duration-500 my-4 lg:my-1 mx-2 p-2 flex justify-center items-center w-12 h-12 rounded-full cursor-pointer`}
-        onClick={()=>handleClick(Item.rate)}
-        active={Myref.current?.playbackRate==Item.rate}
+        <div
+          className={`flex flex-row lg:flex-col text-lg lg:mx-4 justify-center font-semibold items-center ${theme.text.selected}`}
         >
-        {Item.rate+"x"}
-      </PlayBack>)}
-
-      </div>
-
-      <video
-        src={link}
-        width="1024"
-        autoPlay
-        height="576"
-        controls
-        ref={Myref}
-        style={{    boxShadow:" 0rem 2rem 5rem rgba(0, 0, 0, 0.2)"
-        }}
-        ></video>
+          Speed
+          {Data.map((Item) => (
+            <PlayBack
+              button={theme.detailsButton}
+              key={Item.id}
+              className={`shadow-2xl transition-all duration-500 my-4 lg:my-1 mx-2 p-1 flex justify-center items-center w-10 h-10 rounded-full cursor-pointer text-sm`}
+              onClick={() => handleClick(Item.rate)}
+              active={Myref.current?.playbackRate == Item.rate}
+            >
+              {Item.rate}
+            </PlayBack>
+          ))}
         </div>
+
+        <video
+          src={link}
+          width="1024"
+          autoPlay
+          height="576"
+          controls
+          ref={Myref}
+          style={{ boxShadow: " 0rem 2rem 5rem rgba(0, 0, 0, 0.2)" }}
+        ></video>
+      </div>
       <PagiNation
         page={[slug[0], slug[1]]}
         heading={"Ep"}
         total={data.totalepisode}
-        />
+      />
     </div>
   );
 };
