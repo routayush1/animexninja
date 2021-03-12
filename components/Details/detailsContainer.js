@@ -117,7 +117,7 @@ const DetailsContainer = ({ id, data = [] }) => {
             </div>
             <div className="flex flex-col py-4">
               <span className="text-xl font-bold">Total Episodes</span>
-              <span className="text-sm font-bold p-2">{data.totalepisode}</span>
+              <span className="text-sm font-bold p-2">{data.totalepisode!=0?data.totalepisode:"NA"}</span>
             </div>
           </div>
         </div>
