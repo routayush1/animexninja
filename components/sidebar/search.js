@@ -51,9 +51,11 @@ const Search = () => {
   const handleClick = () => {
     var SearchBar = document.getElementById("search");
     var SearchInput = document.getElementById("searchinput");
+    SearchInput.focus();
     SearchInput.style.maxWidth = "800px";
     SearchInput.style.marginLeft = "0.7rem";
     SearchBar.style.width = "auto";
+
   };
   const handleSubmit = (e) => {
     e.preventDefault();
