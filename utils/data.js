@@ -74,6 +74,6 @@ const genrelist = [
 export var Genre = genrelist.map((name, index) => ({
   index: index,
   name: name,
-  link: `/genre/${name.replace(" ", "-")}/1`,
+  link: `/genre/${name.split(" ").join("-")}/1`,
   icon: AiFillPlayCircle,
 }));
