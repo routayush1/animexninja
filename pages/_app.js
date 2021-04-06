@@ -62,7 +62,7 @@ const App = ({ Component, pageProps }) => {
         onClick={() =>
           router.push(`/watching/${resumeId.data[0]}/${resumeId.data[1]}`)
         }
-        autoClose={false}
+        autoClose={5000}
         transition={Flip}
         draggablePercent={30}
       />
