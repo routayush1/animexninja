@@ -15,6 +15,7 @@
     "countapi-js": "^1.0.2",
     "lottie-react-web": "^2.2.2",
     "next": "10.0.5",
+    "next-pwa": "^5.2.9",
     "postcss": "^8.2.4",
     "react": "^17.0.1",
     "react-dark-mode-toggle": "0.0.10",

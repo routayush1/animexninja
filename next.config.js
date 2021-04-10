@@ -1,4 +1,6 @@
-module.exports = {
+const withPWA=require('next-pwa')
+module.exports = withPWA({
+  pwa:{dest:'public'},
   webpack: (config, { isServer }) => {
     // Fixes packages that depend on fs/module module
     config.module.rules.push({
@@ -22,4 +24,4 @@ module.exports = {
     key: process.env.COUNT_API_KEY,
     URL: process.env.BASE_URL,
   },
-};
+});
