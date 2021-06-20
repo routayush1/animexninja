@@ -38,16 +38,6 @@ npm run dev
 ```
 
 
-
-## Deployment
-
-To deploy simply run
-
-```
-npm run build
-npx next export
-```
-
 ## Built With
 
 - Front End
