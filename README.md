@@ -24,7 +24,10 @@ Go to next.config.js file on the root of the project and put your NGROK url insi
 
 
 ```
-URL="YOUR_NGROK_API_URL/api/"
+ env: {
+    key: process.env.COUNT_API_KEY,
+    URL: "YOUR_NGROK_API_URL/api/",
+  }
 ```
 
 ### Installing
