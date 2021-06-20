@@ -20,11 +20,11 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 FIRST YOU NEED TO CLONE [API REPO](https://github.com/routayush1/animexninja-api) AND RUN IT.
 You need to note api local host url.you have to create a tunnel for your api local_host through NGROK.
-Create an .env.local file on the root of the project and put your NGROK url
+Go to next.config.js file on the root of the project and put your NGROK url inside the env object
 
 
 ```
-BASE_URL="YOUR_NGROK_API_URL/api/"
+URL="YOUR_NGROK_API_URL/api/"
 ```
 
 ### Installing
