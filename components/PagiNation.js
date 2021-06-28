@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { BiRightArrowAlt, BiLeftArrowAlt } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
@@ -23,23 +24,41 @@ const PageButton = ({ href, children, style }) => {
   );
 };
 
-const PagiNation = ({ page, total, heading }) => {
-  const pgn = parseInt(page[page.length - 1]);
-  const nxt =
-    page.length == 1 ? String(pgn + 1) : page[0] + "/" + String(pgn + 1);
-  const prev =
-    page.length == 1 ? String(pgn - 1) : page[0] + "/" + String(pgn - 1);
+const PagiNation = ({ total, heading }) => {
+  const router = useRouter();
+  const pathList = router.asPath;
+  const path = pathList?.split("/");
+  const page = parseInt(path?.[path?.length - 1]);
+  var nxt = "";
+  var prev = "";
+  if (path) {
+    const nextPage = page + 1;
+    const prevPage = page - 1;
+    if (total) {
+      nxt =
+        page == total
+          ? null
+          : (path[path.length - 1] = nextPage) && path.join("/");
+      prev =
+        page === 1
+          ? null
+          : (path[path.length - 1] = prevPage) && path.join("/");
+    } else {
+      nxt = (path[path.length - 1] = nextPage) && path.join("/");
+      prev = (path[path.length - 1] = prevPage) && path.join("/");
+    }
+  }
   return (
     <div className="px-8 py-2 mb-16 relative flex flex-row h-16 w-full  items-center  ">
-      {pgn === 1 ? null : (
+      {page === 1 ? null : (
         <PageButton style={"absolute left-12"} href={prev} pre={true}>
           <BiLeftArrowAlt size={20} />
-          {heading} {pgn - 1}
+          {heading} {page - 1}
         </PageButton>
       )}
-      {pgn != total ? (
+      {page != total ? (
         <PageButton style={"absolute right-12"} href={nxt} pre={false}>
-          {heading} {pgn + 1}
+          {heading} {page + 1}
           <BiRightArrowAlt size={20} />
         </PageButton>
       ) : null}

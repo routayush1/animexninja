@@ -53,6 +53,7 @@ const WatchingContainer = ({ data = [], slug }) => {
   const { theme, loading, resumeId } = useSelector((state) => state);
   const [link, setLink] = useState("");
   const [myList, setMyList] = useState([]);
+  const [iframe, setIframe] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     if (data.links?.length > 0) {
@@ -75,8 +76,11 @@ const WatchingContainer = ({ data = [], slug }) => {
           })
         );
       }, 5000);
+      return () => clearInterval(myInterval);
+    } else {
+      setIframe(true);
+      setLink(data.link);
     }
-    return () => clearInterval(myInterval);
   }, [data.links]);
 
   const handleClick = (rate) => {
@@ -86,11 +90,11 @@ const WatchingContainer = ({ data = [], slug }) => {
   return loading ? (
     <Loader />
   ) : (
-    <div className="relative lg:h-1/3  flex justify-center items-center text-left flex-col h-screen w-full px-2 ">
+    <div className="relative flex flex-col items-center justify-center w-full h-screen px-2 text-left lg:h-1/3 ">
       <div
         className={` flex flex-col pb-2 xl:w-player justify-between items-center w-full ${theme.text.selected}   my-4`}
       >
-        <div className="w-full py-4 uppercase flex flex-col items-start lg:items-start">
+        <div className="flex flex-col items-start w-full py-4 uppercase lg:items-start">
           <Link href={`/details/${slug[0]}`}>
             <span
               className={`font-light text-2xl lg:text-4xl ml-0 lg:ml-10 cursor-pointer text-blue-500`}
@@ -102,66 +106,84 @@ const WatchingContainer = ({ data = [], slug }) => {
             className={`bg-gray-400 rounded-full h-0.5 ml-0 lg:ml-11 w-1/12`}
           />
         </div>
-        <div className="flex w-full justify-between items-end">
+        <div className="flex items-end justify-between w-full">
           <span
             className={`${theme.text.selected} ml-0 lg:ml-10 text-3xl lg:text-3xl`}
           >
             {"Ep:" + slug[1]}
           </span>
-          <Select
-            name="Select links"
-            onChange={(event) => {
-              setLink(event.target.value);
-            }}
-            button={theme.button}
-            className={`h-11 cursor-pointer outline-none border ${theme.border.selected} rounded-full ${theme.button.background} border ${theme.button.text} ${theme.button.border} shadow-2xl transition-all duration-500`}
-            value={link}
-            theme={theme}
-          >
-            {myList.map((item, index) => {
-              return (
-                <option
-                  key={index}
-                  className={`${theme.text.notselected} ${theme.border.selected} border outline-none`}
-                  value={item.src}
-                >
-                  {item.size.replace(/[()]/g, "")}
-                </option>
-              );
-            })}
-          </Select>
-        </div>
-      </div>
-      <div className="flex w-full justify-center items-center flex-col-reverse lg:flex-row">
-        <div
-          className={`flex flex-row lg:flex-col text-lg lg:mx-4 justify-center font-semibold items-center ${theme.text.selected}`}
-        >
-          Speed
-          {Data.map((Item) => (
-            <PlayBack
-              button={theme.detailsButton}
-              key={Item.id}
-              className={`shadow-2xl transition-all duration-500 my-4 lg:my-1 mx-2 p-1 flex justify-center items-center w-10 h-10 rounded-full cursor-pointer text-sm`}
-              onClick={() => handleClick(Item.rate)}
-              active={Myref.current?.playbackRate == Item.rate}
+          {!iframe && (
+            <Select
+              name="Select links"
+              onChange={(event) => {
+                setLink(event.target.value);
+              }}
+              button={theme.button}
+              className={`h-11 cursor-pointer outline-none border ${theme.border.selected} rounded-full ${theme.button.background} border ${theme.button.text} ${theme.button.border} shadow-2xl transition-all duration-500`}
+              value={link}
+              theme={theme}
             >
-              {Item.rate}
-            </PlayBack>
-          ))}
+              {myList.map((item, index) => {
+                return (
+                  <option
+                    key={index}
+                    className={`${theme.text.notselected} ${theme.border.selected} border outline-none`}
+                    value={item.src}
+                  >
+                    {item.size.replace(/[()]/g, "")}
+                  </option>
+                );
+              })}
+            </Select>
+          )}
         </div>
-
-        <video
-          src={link}
-          width="1024"
-          autoPlay
-          height="576"
-          controls
-          ref={Myref}
-          style={{ boxShadow: " 0rem 2rem 5rem rgba(0, 0, 0, 0.2)" }}
-        ></video>
       </div>
+      {iframe && (
+                <div className="w-11/12 lg:w-4/6 aspect-w-4 aspect-h-3 lg:aspect-w-16 lg:aspect-h-6">
+
+          <iframe
+            allowFullScreen
+            frameborder="0"
+            marginwidth="0"
+            marginheight="0"
+            scrolling="no"
+            src={link}
+          autoPlay
+          ></iframe>
+        </div>
+      )}
+      {!iframe && (
+        <div className="flex flex-col-reverse items-center justify-center w-full lg:flex-row">
+          <div
+            className={`flex flex-row lg:flex-col text-lg lg:mx-4 justify-center font-semibold items-center ${theme.text.selected}`}
+          >
+            Speed
+            {Data.map((Item) => (
+              <PlayBack
+                button={theme.detailsButton}
+                key={Item.id}
+                className={`shadow-2xl transition-all duration-500 my-4 lg:my-1 mx-2 p-1 flex justify-center items-center w-10 h-10 rounded-full cursor-pointer text-sm`}
+                onClick={() => handleClick(Item.rate)}
+                active={Myref.current?.playbackRate == Item.rate}
+              >
+                {Item.rate}
+              </PlayBack>
+            ))}
+          </div>
+
+          <video
+            src={link}
+            width="1024"
+            autoPlay
+            height="576"
+            controls
+            ref={Myref}
+            style={{ boxShadow: " 0rem 2rem 5rem rgba(0, 0, 0, 0.2)" }}
+          ></video>
+        </div>
+      )}
       <PagiNation
-        page={[slug[0], slug[1]]}
+        page={[slug[slug.length-2], slug[slug.length-1]]}
         heading={"Ep"}
         total={data.totalepisode}
       />

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
+    "@tailwindcss/aspect-ratio": "^0.2.1",
     "autoprefixer": "^10.2.3",
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.5",

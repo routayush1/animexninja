@@ -28,6 +28,9 @@ module.exports = {
 
   variants: {
     extend: {},
+    aspectRatio: ['responsive', 'hover']
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
 };

@@ -10,6 +10,7 @@ const Recently = () => {
   const { data } = useSelector((state) => state);
   const router = useRouter();
   const { slug } = router.query;
+  console.log(slug)
   const dispatch = useDispatch();
 
   useEffect(() => {
