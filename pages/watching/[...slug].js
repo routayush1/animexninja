@@ -10,7 +10,6 @@ const Recently = () => {
   const { data } = useSelector((state) => state);
   const router = useRouter();
   const { slug } = router.query;
-  console.log(slug)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,7 +20,9 @@ const Recently = () => {
   }, [slug]);
 
   return (
-    <Layout title={"Watching "+slug?.[0]}>{slug && <WatchingContainer data={data} slug={slug} />}</Layout>
+    <Layout title={"Watching " + slug?.[0]}>
+      {slug && <WatchingContainer data={data} slug={slug} />}
+    </Layout>
   );
 };
 
