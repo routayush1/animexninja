@@ -30,6 +30,10 @@ const App = ({ Component, pageProps }) => {
   const { theme, resumeId } = useSelector((state) => state);
   const router = useRouter();
   useEffect(() => {
+    console.log(
+      "%c Animex.ninja! ",
+      "background: #222; color:#4198db ;font-size:50px"
+    );
     localStorage.removeItem("persist:root");
     if (resumeId) if (resumeId) toast.info(<Msg resumeId={resumeId.data} />);
     countapi.update("animex.ninja", process.env.key, 1).then((result) => {

@@ -10,6 +10,7 @@ const recieveData = (payload) => {
 export const asyncDataAction = (URL) => {
   return async function (dispatch) {
     dispatch(fetchData());
+    console.log(URL);
     const response = await fetch(URL);
     const result = await response.json();
     dispatch(recieveData(result));
