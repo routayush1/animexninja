@@ -75,7 +75,7 @@ const Card = ({ title, id, heading, image, episodenumber }) => {
       >
         <MovieImg
           className="w-full object-cover rounded-xl h-60 xl:h-96 md:h-72 lg:h-80"
-          src={image}
+          src={image?.includes("4anime.to") ? image : "/nothing.svg"}
           loading="lazy"
           alt={title}
         />
