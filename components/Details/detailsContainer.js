@@ -55,7 +55,7 @@ const DetailsContainer = ({ id, data = [] }) => {
               <span
                 className={`${theme.text.selected} capitalize w-30 text-base font-medium p-2`}
               >
-                {data?.type.replaceAll("-", " ")}
+                {data.type?.replaceAll("-", " ")}
               </span>
             </div>
 

@@ -61,6 +61,7 @@ const DetailsWrapper = styled.div`
 `;
 
 const Card = ({ title, id, heading, image, episodenumber }) => {
+  console.log(image);
   const theme = useSelector((state) => state.theme);
   return (
     <Link
