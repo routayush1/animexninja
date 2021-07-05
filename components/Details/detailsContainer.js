@@ -53,9 +53,9 @@ const DetailsContainer = ({ id, data = [] }) => {
                 />
               </span>
               <span
-                className={`${theme.text.selected} text-base font-medium p-2`}
+                className={`${theme.text.selected} capitalize w-30 text-base font-medium p-2`}
               >
-                {data.type}
+                {data?.type.replaceAll("-", " ")}
               </span>
             </div>
 
@@ -79,15 +79,15 @@ const DetailsContainer = ({ id, data = [] }) => {
             </div>
             <div className="flex w-full justify-between items-center">
               <div className="flex flex-col py-3">
-                <span className="font-bold text-xl">Released</span>
-                <span className={`${theme.text.notselected} px-2`}>
+                <span className="font-bold text-xl ">Released</span>
+                <span className={`${theme.text.notselected} capitalize px-2`}>
                   {data.relased}
                 </span>
               </div>
 
               <div className="flex flex-col py-3">
-                <span className="font-bold text-xl">Status</span>
-                <span className={`${theme.text.notselected}`}>
+                <span className="font-bold text-xl ">Status</span>
+                <span className={`${theme.text.notselected} capitalize`}>
                   {data.status}
                 </span>
               </div>
@@ -97,27 +97,30 @@ const DetailsContainer = ({ id, data = [] }) => {
               <span
                 className={`${theme.text.notselected} flex flex-row flex-wrap justify-start w-full items-center`}
               >
-                {data.genres?.split(", ").map((Item, index) => (
-                  <Link
-                    href={`/genre/${Item.split(" ").join("-")}/1`}
-                    key={index}
-                  >
-                    <span className=" py-1 mr-2 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-200">
-                      <AiFillPlayCircle
-                        size={13}
-                        style={{ margin: "0px 10px" }}
-                        className="text-blue-500"
-                      />
+                {console.log(data?.genres) ||
+                  data.genres?.split(", ").map((Item, index) => (
+                    <Link
+                      href={`/genre/${Item.split(" ").join("-")}/1`}
+                      key={index}
+                    >
+                      <span className=" py-1 mr-2 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-200">
+                        <AiFillPlayCircle
+                          size={13}
+                          style={{ margin: "0px 10px" }}
+                          className="text-blue-500"
+                        />
 
-                      {Item}
-                    </span>
-                  </Link>
-                ))}
+                        {Item}
+                      </span>
+                    </Link>
+                  ))}
               </span>
             </div>
             <div className="flex flex-col py-4">
               <span className="text-xl font-bold">Total Episodes</span>
-              <span className="text-sm font-bold p-2">{data.totalepisode == "0" ? "NA" : data.totalepisode}</span>
+              <span className="text-sm font-bold p-2">
+                {data.totalepisode == "0" ? "NA" : data.totalepisode}
+              </span>
             </div>
           </div>
         </div>

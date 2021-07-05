@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 const Search = () => {
   const router = useRouter();
   const [val, setVal] = useState("");
-  const [content, setContent] = useState([]);
+  // const [content, setContent] = useState([]);
   useEffect(() => {
     var SearchBar = document.getElementById("search");
     var SearchInput = document.getElementById("searchinput");
@@ -20,33 +20,33 @@ const Search = () => {
       if (!isClickInside) {
         SearchInput.style.maxWidth = 0;
         SearchInput.style.marginLeft = 0;
-        setContent([]);
+        // setContent([]);
         setVal("");
       }
     });
   }, []);
   const handleSearch = async (e) => {
     setVal(e.target.value);
-    let d = await axios.get(
-      "https://ajax.gogocdn.net/site/loadAjaxSearch?keyword=" + val
-    );
-    d = d.data.content.replaceAll("category/", "/details/");
-    var myList = [];
-    var $ = cheerio.load(d);
-    $("a").each(function (index, element) {
-      let result = {};
-      let title = $(this).text();
-      let link = $(this).attr().href;
-      let image = $(this)
-        .children("div")
-        .attr()
-        .style.slice(15)
-        .replace(/[("")]/g, "");
-      result = { title, link, image };
-      myList.push(result);
-    });
+    // let d = await axios.get(
+    //   "https://ajax.gogocdn.net/site/loadAjaxSearch?keyword=" + val
+    // );
+    // d = d.data.content.replaceAll("category/", "/details/");
+    // var myList = [];
+    // var $ = cheerio.load(d);
+    // $("a").each(function (index, element) {
+    //   let result = {};
+    //   let title = $(this).text();
+    //   let link = $(this).attr().href;
+    //   let image = $(this)
+    //     .children("div")
+    //     .attr()
+    //     .style.slice(15)
+    //     .replace(/[("")]/g, "");
+    //   result = { title, link, image };
+    //   myList.push(result);
+    // });
 
-    setContent(myList);
+    // setContent(myList);
   };
   const handleClick = () => {
     var SearchBar = document.getElementById("search");
@@ -55,12 +55,11 @@ const Search = () => {
     SearchInput.style.maxWidth = "800px";
     SearchInput.style.marginLeft = "0.7rem";
     SearchBar.style.width = "auto";
-
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     router.push(`/search/${val}/1`);
-    setContent([]);
+    // setContent([]);
     setVal("");
   };
   const theme = useSelector((state) => state.theme);
@@ -80,7 +79,7 @@ const Search = () => {
           placeholder="Search for anime..."
           id="searchinput"
         />
-        {content.length > 0 && (
+        {/* {content.length > 0 && (
           <div
             className={` autocomplete absolute left-0 px-1 py-0 top-11 shadow-2xl transition-all duration-200 rounded-xl ${theme.button.text} w-full ${theme.button.background}`}
           >
@@ -102,7 +101,7 @@ const Search = () => {
               </Link>
             ))}
           </div>
-        )}
+        )} */}
       </div>
     </form>
   );

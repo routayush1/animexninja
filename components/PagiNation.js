@@ -11,6 +11,7 @@ const PB = styled.span`
 `;
 
 const PageButton = ({ href, children, style }) => {
+  console.log(typeof href);
   const { theme } = useSelector((state) => state);
   return (
     <Link href={href}>

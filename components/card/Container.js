@@ -39,7 +39,9 @@ function Container({ Data = [], heading, page, Icon }) {
           <Card {...item} key={index} heading={heading} />
         ))}
       </div>
-      {page ? <PagiNation page={page} heading={"Page"} /> : null}
+      {page.length < 2 || heading == "Genres" ? (
+        <PagiNation page={page} heading={"Page"} />
+      ) : null}
     </>
   ) : (
     <div className={` flex flex-col h-screen  w-full text-lg`}>
