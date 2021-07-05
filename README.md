@@ -6,7 +6,7 @@
 
 ![Thumbnail](thumbnail.png)
 
-An Anime Streaming web app to give you a better experience for free.
+An Ad Free Anime Streaming web app to give you a better experience.
 
 ## Api Reference
 
