@@ -4,6 +4,7 @@ import PagiNation from "../PagiNation";
 import Loader from "../Loader/Loader";
 function Container({ Data = [], heading, page, Icon }) {
   const { theme, loading } = useSelector((state) => state);
+  console.log(Data);
   return loading ? (
     <Loader />
   ) : Data.length > 0 ? (

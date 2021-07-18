@@ -53,6 +53,7 @@ const WatchingContainer = ({ data = [], slug }) => {
   const { theme, loading, resumeId } = useSelector((state) => state);
   const [link, setLink] = useState("");
   const [myList, setMyList] = useState([]);
+  const [iframe, setIframe] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     if (data.links?.length > 0) {
@@ -75,6 +76,9 @@ const WatchingContainer = ({ data = [], slug }) => {
           })
         );
       }, 5000);
+    } else {
+      setLink(data.link);
+      setIframe(true);
     }
     return () => clearInterval(myInterval);
   }, [data.links]);
@@ -108,57 +112,71 @@ const WatchingContainer = ({ data = [], slug }) => {
           >
             {"Ep:" + slug[1]}
           </span>
-          <Select
-            name="Select links"
-            onChange={(event) => {
-              setLink(event.target.value);
-            }}
-            button={theme.button}
-            className={`h-11 cursor-pointer outline-none border ${theme.border.selected} rounded-full ${theme.button.background} border ${theme.button.text} ${theme.button.border} shadow-2xl transition-all duration-500`}
-            value={link}
-            theme={theme}
-          >
-            {myList.map((item, index) => {
-              return (
-                <option
-                  key={index}
-                  className={`${theme.text.notselected} ${theme.border.selected} border outline-none`}
-                  value={item.src}
-                >
-                  {item.size.replace(/[()]/g, "")}
-                </option>
-              );
-            })}
-          </Select>
+          {!iframe && (
+            <Select
+              name="Select links"
+              onChange={(event) => {
+                setLink(event.target.value);
+              }}
+              button={theme.button}
+              className={`h-11 cursor-pointer outline-none border ${theme.border.selected} rounded-full ${theme.button.background} border ${theme.button.text} ${theme.button.border} shadow-2xl transition-all duration-500`}
+              value={link}
+              theme={theme}
+            >
+              {myList.map((item, index) => {
+                return (
+                  <option
+                    key={index}
+                    className={`${theme.text.notselected} ${theme.border.selected} border outline-none`}
+                    value={item.src}
+                  >
+                    {item.size.replace(/[()]/g, "")}
+                  </option>
+                );
+              })}
+            </Select>
+          )}
         </div>
       </div>
       <div className="flex w-full justify-center items-center flex-col-reverse lg:flex-row">
-        <div
-          className={`flex flex-row lg:flex-col text-lg lg:mx-4 justify-center font-semibold items-center ${theme.text.selected}`}
-        >
-          Speed
-          {Data.map((Item) => (
-            <PlayBack
-              button={theme.detailsButton}
-              key={Item.id}
-              className={`shadow-2xl transition-all duration-500 my-4 lg:my-1 mx-2 p-1 flex justify-center items-center w-10 h-10 rounded-full cursor-pointer text-sm`}
-              onClick={() => handleClick(Item.rate)}
-              active={Myref.current?.playbackRate == Item.rate}
+        {iframe ? (
+          <iframe
+            src={link}
+            className=" max-w-full lg:max-w-screen-lg"
+            sandbox
+            width={1024}
+            height={576}
+          />
+        ) : (
+          <>
+            <div
+              className={`flex flex-row lg:flex-col text-lg lg:mx-4 justify-center font-semibold items-center ${theme.text.selected}`}
             >
-              {Item.rate}
-            </PlayBack>
-          ))}
-        </div>
+              Speed
+              {Data.map((Item) => (
+                <PlayBack
+                  button={theme.detailsButton}
+                  key={Item.id}
+                  className={`shadow-2xl transition-all duration-500 my-4 lg:my-1 mx-2 p-1 flex justify-center items-center w-10 h-10 rounded-full cursor-pointer text-sm`}
+                  onClick={() => handleClick(Item.rate)}
+                  active={Myref.current?.playbackRate == Item.rate}
+                >
+                  {Item.rate}
+                </PlayBack>
+              ))}
+            </div>
 
-        <video
-          src={link}
-          width="1024"
-          autoPlay
-          height="576"
-          controls
-          ref={Myref}
-          style={{ boxShadow: " 0rem 2rem 5rem rgba(0, 0, 0, 0.2)" }}
-        ></video>
+            <video
+              src={link}
+              width="1024"
+              autoPlay
+              height="576"
+              controls
+              ref={Myref}
+              style={{ boxShadow: " 0rem 2rem 5rem rgba(0, 0, 0, 0.2)" }}
+            />
+          </>
+        )}
       </div>
       <PagiNation
         page={[slug[0], slug[1]]}
