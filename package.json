@@ -11,7 +11,7 @@
     "@svgr/webpack": "^5.5.0",
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "autoprefixer": "^10.2.3",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "cheerio": "^1.0.0-rc.5",
     "countapi-js": "^1.0.2",
     "lottie-react-web": "^2.2.2",
