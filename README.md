@@ -1,10 +1,6 @@
 # Anime Web App with Reactjs.
 
-## Check it live here
-
-[www.animex.ninja](https://www.animex.ninja/)
-
-![Thumbnail](thumbnail.png)
+![Thumbnail](https://user-images.githubusercontent.com/40962136/232327362-7119a868-5c7a-47a8-a4d5-9b5f2a6dab14.png)
 
 An Ad Free Anime Streaming web app to give you a better experience.
 
